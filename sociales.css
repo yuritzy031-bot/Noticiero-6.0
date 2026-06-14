@@ -1,0 +1,412 @@
+/*Estilos de sociales*/
+main * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#sociales {
+    width: 95%;
+    max-width: 1300px;
+    margin: 30px auto;
+    background: white;
+    padding: 80px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+}
+
+/*Aplica alineación centrada a los títulos principales
+h1, h2 y h3.*/
+
+
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+/*CONFIGURACIÓN GENERAL DE LOS PÁRRAFOS*/
+
+#sociales p {
+    text-align: justify;
+    /*Acomoda el texto en ambos lados.*/
+    line-height: 1.8;
+    /* Acomoda el texto en ambos lados.*/
+    font-size: 22px;
+    /*modifica el tamaño de la letra.*/
+}
+
+/*ENCABEZADO*/
+
+.encabezado-sociales {
+    display: grid;
+    /*Permite organizar los elementos en columnas.*/
+    grid-template-columns: 1fr 2fr 1fr;
+    /*crea tres espacios: columna izquierda vacía, título principal,fecha*/
+    align-items: center;
+    /* centra los elementos verticalmente.*/
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    padding: 20px 0;
+    /* centra los elementos verticalmente.*/
+    margin-bottom: 50px;
+    /*separa el encabezado del contenido.*/
+}
+
+.seccion-sociales {
+    font-size: 90px;
+    /*cambia el tamaño.*/
+    font-weight: 900;
+    /*hace la letra más gruesa.*/
+    text-align: center;
+}
+
+.fecha-sociales {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*SEPARADORES DE NOTICIAS*/
+.titulo-solidaridad,
+.salud-paz,
+.depresion,
+.cancer,
+.mujer {
+    border-top: 5px solid rgb(105, 19, 19);
+    /*crea una línea superior color guinda para dividir cada noticia.*/
+    padding-top: 40px;
+    /*genera espacio después de la línea.*/
+}
+
+.seccion-solidaridad {
+    padding-top: 40px;
+    margin-top: 60px;
+}
+
+/*TITULOS*/
+
+.noticia-principal h1 {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 40px;
+}
+
+.tarjeta-social h2 {
+    /*Define el tamaño de los subtítulos dentro
+de las tarjetas de información.*/
+    font-size: 50px;
+    margin-bottom: 25px;
+    line-height: 1.1;
+}
+
+.tarjeta-social h3 {
+    color: rgb(105, 19, 19);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.titulo-conmemoraciones {
+    font-size: 90px;
+    font-weight: 900;
+    text-align: center;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+/*NOTICIA PRINCIPAL*/
+
+.contenedor-noticia-sociales {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 40px;
+}
+
+.columna-sociales {
+    background: #efefef;
+    padding: 25px;
+    border-left: 6px solid rgb(105, 19, 19);
+}
+
+.columna-sociales img {
+    width: 100%;
+    /*hace que la imagen ocupe
+todo el ancho disponible del contenedor.*/
+    border-radius: 8px;
+    /*redondea las esquinas.*/
+}
+
+.contenido-sociales {
+    padding: 10px;
+    /*agrega espacio alrededor del texto
+para evitar que quede pegado al borde.*/
+}
+
+.contenido-sociales img {
+    width: 70%;
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+}
+
+/*PIE DE FOTO*/
+
+.pie-sociales {
+    font-size: 20px;
+    text-align: center;
+    color: #555;
+    font-style: italic;
+    margin: 15px 0 25px;
+    line-height: 1.4;
+}
+
+.pie-socialess {
+    font-size: 35px;
+    text-align: center;
+    color: #555;
+    font-style: italic;
+    /* coloca la letra en cursiva.*/
+    margin: 15px 0 25px;
+    line-height: 1.4;
+}
+
+/*DESTACADO*/
+
+.destacado-sociales {
+    background: #e7e7e7;
+    padding: 30px;
+    justify-content: center;
+}
+
+
+#sociales .texto-destacado-sociales .vida {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.imagen-destacado-sociales img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.imagen-destacado-socialess {
+    width: 50%;
+    border-radius: 8px;
+}
+
+/*SOLIDARIDAD*/
+
+.titulo-solidaridad {
+    text-align: center;
+    font-size: 50px;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.solidaridad-grid {
+    display: grid;
+    grid-template-columns: 22% 56% 22%;
+    gap: 20px;
+    /* separa las columnas.*/
+}
+
+.columna-izquierda {
+    border-right: 1px solid #999;
+    padding-right: 15px;
+}
+
+.columna-izquierda img {
+    width: 100%;
+}
+
+.columna-centro img {
+    width: 100%;
+}
+
+.columna-derecha {
+    display: flex;
+    /*permite acomodar los recuadros
+uno debajo de otro.*/
+    flex-direction: column;
+    gap: 15px;
+}
+
+.recuadro-gris {
+    background: #e7e7e7;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.recuadro-gris h3 {
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.recuadro-gris p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/*DIA NARANJA*/
+
+.dia-naranja {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 40px;
+    align-items: center;
+}
+
+/*SALUD Y PAZ*/
+
+.salud-paz {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.salud-paz article {
+    padding: 30px;
+}
+
+.salud-paz img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+/*DEPRESION*/
+
+.depresion {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 40px;
+    align-items: center;
+}
+
+.depresion img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+/*CANCER*/
+
+.cancer {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 40px;
+    align-items: center;
+}
+
+.cancer img {
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+
+/*MUJER*/
+
+.mujer {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.mujer img {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.mujer ul {
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+.mujer li {
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/*IMAGENES*/
+
+img {
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+/*ESPACIADO*/
+
+#sociales section {
+    margin-bottom: 70px;
+}
+
+/*RESPONSIVE*/
+
+@media(max-width:760px) {
+
+    #sociales {
+        padding: 15px;
+    }
+
+    .encabezado-sociales {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .seccion-sociales {
+        font-size: 50px;
+    }
+
+    .fecha-sociales {
+        text-align: center;
+        font-size: 10px;
+    }
+
+    #noticia8,
+    .seccion-solidaridad h2 {
+        font-size: 30px;
+    }
+
+    .titulo-conmemoraciones {
+        font-size: 20px;
+    }
+
+    .contenedor-noticia-sociales,
+    .solidaridad-grid,
+    .destacado-sociales,
+    .dia-naranja,
+    .salud-paz,
+    .depresion,
+    .cancer,
+    .mujer {
+        grid-template-columns: 1fr;
+    }
+
+    .destacado-sociales div,
+    .columna-izquierda {
+        padding-right: 0px;
+        margin: auto;
+    }
+
+    #sociales p {
+        font-size: 15px;
+        margin: 10px;
+    }
+
+    #sociales .texto-destacado-sociales .vida {
+        font-size: 30px;
+    }
+
+    #sociales li {
+        font-size: smaller;
+    }
+}
