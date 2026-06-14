@@ -1,0 +1,212 @@
+#cultura{
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+main *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+#cultura{
+
+hr{ /*Da espacio superior e inferior a las líneas horizontales.*/
+    margin:20px 0;
+}
+
+h1{ /*Estilo general para títulos principales.*/
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.encabezado-cultura{ /*Organiza el encabezado de la sección Cultura.
+Utiliza Grid para acomodar sus elementos.*/
+    display:grid;
+    grid-template-columns:1fr;
+    align-items:center;
+    margin-bottom:40px;
+    text-align:center;
+    width:100% ;
+}
+
+.seccion-cultura{
+    font-size:70px;
+    font-weight:bold;
+    text-align:center;
+    width:100%;
+    display:block;
+}
+
+.seccion-cultura::after{ /*Crea una línea decorativa debajo del título CULTURA.*/
+    content:"";
+    display:block;
+    width:100%;
+    height:4px;
+    background:rgb(105,19,19);
+    margin-top:20px;
+}
+
+.fecha-cultura{
+    font-size:18px;
+    text-align:right;
+    grid-column: 3;
+}
+
+.contenedor-noticia-cultura{ /*Distribuye la noticia principal en dos columnas.*/
+    display:grid;
+    grid-template-columns:35% 65%;
+    gap:25px;
+    margin-top:20px;
+}
+
+.columna-cultura img{ /*Ajusta el tamaño de las imágenes de la noticia.*/
+    width:100%;
+    border-radius:10px;
+}
+
+.pie-cultura{ /*Formato para los pies de imagen.*/
+    margin-top:10px;
+    font-size:14px;
+    color:#555;
+    font-style:italic;
+    text-align: right;
+}
+
+.pie-constitucion{ /*Pie de imagen específico para la noticia de Constitución.*/
+     margin-top:10px;
+    font-size:14px;
+    color:#555;
+    font-style:italic;
+    text-align: center;
+    width: 100%;
+}
+
+.contenido-cultura{
+    text-align:justify;
+    line-height:1.8;
+    padding: 60px;
+    width:100%;
+    box-sizing: border-box;
+
+}
+
+.contenido-cultura p{ /*Separación entre párrafos.*/
+    margin-bottom:15px;
+}
+
+.galeria-cultura{ /*Galería de imágenes.
+Organiza dos imágenes en columnas.*/
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:30px;
+}
+
+.galeria-cultura img{
+    width:100%;
+    border-radius:10px;
+}
+
+.imagenes-carteles{ 
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+.imagenes-carteles img{ /*Controla tamaño y recorte de las imágenes.*/
+
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.tarjeta-cultura h2{
+    font-size:40px;
+    margin-bottom:25px;
+}
+
+.contenido-constitucion{ /*Divide la noticia de Constitución:
+texto a la izquierda e imagen a la derecha.*/
+
+    display:grid;
+    grid-template-columns:60% 40%;
+    gap:40px;
+    align-items:start;
+}
+
+.texto-constitucion h2{
+    font-size:2.8rem;
+    line-height:1.1;
+    margin-bottom:25px;
+    text-align:left;
+}
+
+.texto-constitucion p{
+    text-align:justify;
+    line-height:1.8;
+    font-size:1.2rem;
+}
+
+.imagen-constitucion img{
+    width:80%;
+    height:auto;
+    border-radius:8px;
+}
+.tarjeta-cultura{
+    margin-top:60px;
+    border-top:4px solid rgb(105,19,19);
+    padding-top:40px;
+}
+
+.contenido-constitucion{
+    margin-top:50px;
+}
+
+@media (max-width: 760px){
+
+    .encabezado-cultura .seccion-cultura{
+        font-size: 30px;
+    }
+
+    .encabezado-cultura .fecha-cultura{
+        font-size: 15px;
+    }
+
+    h1{
+        font-size: 25px;
+    }
+
+    .texto-constitucion h2{
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .contenedor-noticia-cultura, .contenido-constitucion, .galeria-cultura{
+        display: block;
+    }
+
+    .columna-cultura, .imagen-constitucion, .galeria-cultura img{
+        width: 80%;
+        margin: auto;
+    }
+
+    .contenido-cultura, .texto-constitucion{
+        padding: 10px;
+    }
+
+    .texto-constitucion p{
+        font-size:1rem;
+    }
+
+}
+}
