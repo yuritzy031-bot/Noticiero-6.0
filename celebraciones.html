@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticiero 6.0</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="celebraciones.css">
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <div class="encabezado">
+        <img src="imagenes/logo.jpeg" alt="Logo" class="logo">
+        <h1>Noticiero 6.0</h1>
+
+        <div class="boton">
+            <a href="#help" class="ayuda">AYUDA</a>
+        </div>
+    </div>
+
+    <section class="buscador">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar noticia"/>
+            <ul id="resultsList" class="results-list"></ul>
+            <p id="noResults" class="no-results">No se encontraron resultados.</p>
+        </div>
+
+        <script src="app.js"></script>
+        <script>
+            const countries = [
+                {
+                    title: "Noticias Variadas",
+                    page: "index.html",
+                    id: "noticia1",
+                },
+                {
+                    title: "Teoría del color",
+                    page: "cultura.html",
+                    id: "noticia2",
+                },
+                {
+                    title: "Constitución política",
+                    page: "cultura.html",
+                    id: "noticia3",
+                },
+                {
+                    title: "Entrega de tablets",
+                    page: "tecnología.html",
+                    id: "noticia4",
+                },
+                {
+                    title: "Campeones nacionales",
+                    page: "competencias.html",
+                    id: "noticia5",
+                },
+                {
+                    title: "Fútbol femenil",
+                    page: "deportes.html",
+                    id: "noticia6",
+                },
+                {
+                    title: "Día de San Valentín",
+                    page: "deportes.html",
+                    id: "noticia7",
+                },
+                {
+                    title: "Vinculación con instituciones",
+                    page: "sociales.html",
+                    id: "noticia8",
+                },
+                {
+                    title: "Solidaridad ante inundaciones",
+                    page: "sociales.html",
+                    id: "noticia9",
+                },
+                {
+                    title: "Conmemoraciones",
+                    page: "sociales.html",
+                    id: "noticia10"
+                },
+                {
+                    title: "Cumpleaños",
+                    page: "celebraciones.html",
+                    id: "noticia11"
+                },
+                {
+                    title: "Obituarios",
+                    page: "obituarios.html",
+                    id: "noticia12"
+                }
+            ];
+
+            const searchInput = document.getElementById("searchInput");
+            const resultList = document.getElementById("resultsList");
+            const noResults = document.getElementById("noResults");
+
+            const handleSearch = () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const filteredCountries = countries.filter((country) => country.title.toLowerCase().includes(searchTerm));
+
+                resultList.innerHTML = "";
+
+                if (filteredCountries.length === 0) {
+                    noResults.style.display = "block";
+                } 
+                
+                else {
+                    filteredCountries.forEach((country) => {
+                        const li = document.createElement("li");
+                        li.textContent = country.title;
+                        li.addEventListener("click", () =>{
+                            searchInput.value = "";
+                            resultList.innerHTML = "";
+                            noResults.style.display = "none";
+                            location.href = country.page + "#" + country.id;
+                        });
+                        resultList.appendChild(li);
+                    });
+                    noResults.style.display = "none";
+                }
+
+                if (searchInput.value === "") {
+                    resultList.innerHTML = "";
+                }
+            };
+
+            searchInput.addEventListener("input", handleSearch);
+        </script>
+    </section>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Cultura.html">Cultura</a></li>
+            <li><a href="Tecnología.html">Tecnología</a></li>
+            <li><a href="Competencias.html">Competencias</a></li>
+            <li><a href="Deportes.html">Deportes</a></li>
+            <li><a href="Sociales.html">Sociales</a></li>
+            <li><a href="Celebraciones.html">Celebraciones</a></li>
+            <li><a href="Obituarios.html">Obituarios</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="celebraciones"  class="pagina">
+        <h2>CELEBRACIONES DEL BACHILLERATO PLANTEL TEPEJI</h2>
+        <h3 class="Celebraciones-title" id="noticia11"> ¡FELIZ CUMPLEAÑOS!</h3>
+        <h4>El Bachillerato General Plantel Tepeji da con un cálido abrazo una gran felicitación a todos los cumplañeros</h4>
+        
+        <section class="tarjetas">
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen1.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>27 de Enero</p>
+                <p>Docente de Ingles</p>
+                <p>Lic. Elsa Elideth Vázquez Paz</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen2.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>20 de Febrero</p>
+                <p>Docente de Derecho</p>
+                <p>Lic. Sadot Eleazar Monroy Valencia</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen3.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>21 de Febrero</p>
+                <p>Subdirectora Académica</p>
+                <p>Lic. Olga Lidia Pérez Escobar</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen4.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>4 de Marzo</p>
+                <p>Docente de Educación Física</p>
+                <p>Lic. Francisco Javier Castelazo Zamora</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen5.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>16 de Marzo</p>
+                <p>Diputado</p>
+                <p>Dip. José Luis Rodríguez Higareda</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen6.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>31 de Marzo</p>
+                <p>Subsecretario de Educacion Media Superior y Superior</p>
+                <p>Dr. Daniel Fragoso Torres</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen7.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>13 de Abril</p>
+                <p>Director General del Bachillerato del Estado de Hidalgo</p>
+                <p>Mtro. Elias Cornejo Sanchez</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen8.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>16 de Abril</p>
+                <p>Diputada Federal por el Distrito 5</p>
+                <p>Dip. Astrit Viridiana Cornejo Gómez</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen9.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>1 de Mayo</p>
+                <p>Personal de intendencia</p>
+                <p>Berta Ligia Jiménez Olguín</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen10.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>19 de Mayo</p>
+                <p>Docente de Matemáticas</p>
+                <p>Ing. Aldo Pedro González Ávila</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen11.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>5 de Julio</p>
+                <p>Directora del Plantel</p>
+                <p>Lic. Yaneth Lucero Miranda Miranda</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen12.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>23 de Junio</p>
+                <p>Docente de Química</p>
+                <p>Ing. Jonathan Michael Ángeles Nava</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen13.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>17 de Agosto</p>
+                <p>Docente de Computación</p>
+                <p>Ing. María del Rosario Bautista Montoya</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen14.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>5 de Septiembre</p>
+                <p>Secretario de Educacion del Estado de Hidalgo</p>
+                <p>Natividad Castrejon Valdez</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen15.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>9 de Septiembre</p>
+                <p>Secretaria</p>
+                <p>Mariela Guadalupe Quiréz Miranda</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen16.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>13 de Octubre</p>
+                <p>Docente de Comunicación</p>
+                <p>Lic. Nubia Nelly Vázquez Paz</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen17.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>11 de Noviembre</p>
+                <p>Prefecta</p>
+                <p>Arizbeth Jiménez Gutiérrez</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen18.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>19 de Noviembre</p>
+                <p>Coordinador Operativo de la Zona 05 Tepeji Huichapan</p>
+                <p>Miguel Angel Bautista Mota</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen19.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>23 de Noviembre</p>
+                <p>Coordinador Operativo del Plantel</p>
+                <p>Ing. José Ramón Cornejo Ortiz</p>
+            </details>
+
+            <details class="ds3">
+                <summary>
+                    <img src="imagenes/imagen20.jpeg" alt="Cumpleaños" class="imagen">
+                </summary>
+                <p>21 de Diciembre</p>
+                <p>Docente</p>
+                <p>Lic. María del Carmen Barrera Navarrete</p>
+            </details>
+        </section>
+    </section>
+</main>
+
+<footer>
+
+    <div class="nav_section">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="Cultura.html">Cultura</a>
+            <a href="Tecnología.html">Tecnología</a>
+            <a href="Competencias.html">Competencias</a>
+            <a href="Deportes.html">Deportes</a>
+            <a href="Sociales.html">Sociales</a>
+            <a href="Celebraciones.html">Celebraciones</a>
+            <a href="Obituarios.html">Obituarios</a>
+        </nav>
+    </div>
+
+    <div class="consulta">
+        <p>Síguenos:</p>
+        <div class="consulta1">
+            <section class="consulta1">
+                    <div class="red">
+                        <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                    <div class="link">
+                        <p><a href="https://www.facebook.com/BachilleratoGenAztecaHgo">Bachillerato General Plantel Tepeji del Río</a></p>
+                    </div>
+            </section>
+
+            <section class="consulta1">
+                    <div class="red">
+                    <a href="https://www.bachillerato-hgo.edu.mx/">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    </div>
+                    <div class="link">
+                    <p><a href="https://www.facebook.com/BachilleratoGenAztecaHgo">Bachillerato del Estado de Hidalgo</a></p>
+                    </div>
+            </section>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+</html>
