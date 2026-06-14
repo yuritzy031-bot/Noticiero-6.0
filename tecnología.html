@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticiero 6.0</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tecnología.css">
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <div class="encabezado">
+        <img src="imagenes/logo.jpeg" alt="Logo" class="logo">
+        <h1>Noticiero 6.0</h1>
+
+        <div class="boton">
+            <a href="#help" class="ayuda">AYUDA</a>
+        </div>
+    </div>
+
+    <section class="buscador">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar noticia"/>
+            <ul id="resultsList" class="results-list"></ul>
+            <p id="noResults" class="no-results">No se encontraron resultados.</p>
+        </div>
+
+        <script src="app.js"></script>
+        <script>
+            const countries = [
+                {
+                    title: "Noticias Variadas",
+                    page: "index.html",
+                    id: "noticia1",
+                },
+                {
+                    title: "Teoría del color",
+                    page: "cultura.html",
+                    id: "noticia2",
+                },
+                {
+                    title: "Constitución política",
+                    page: "cultura.html",
+                    id: "noticia3",
+                },
+                {
+                    title: "Entrega de tablets",
+                    page: "tecnología.html",
+                    id: "noticia4",
+                },
+                {
+                    title: "Campeones nacionales",
+                    page: "competencias.html",
+                    id: "noticia5",
+                },
+                {
+                    title: "Fútbol femenil",
+                    page: "deportes.html",
+                    id: "noticia6",
+                },
+                {
+                    title: "Día de San Valentín",
+                    page: "deportes.html",
+                    id: "noticia7",
+                },
+                {
+                    title: "Vinculación con instituciones",
+                    page: "sociales.html",
+                    id: "noticia8",
+                },
+                {
+                    title: "Solidaridad ante inundaciones",
+                    page: "sociales.html",
+                    id: "noticia9",
+                },
+                {
+                    title: "Conmemoraciones",
+                    page: "sociales.html",
+                    id: "noticia10"
+                },
+                {
+                    title: "Cumpleaños",
+                    page: "celebraciones.html",
+                    id: "noticia11"
+                },
+                {
+                    title: "Obituarios",
+                    page: "obituarios.html",
+                    id: "noticia12"
+                }
+            ];
+
+            const searchInput = document.getElementById("searchInput");
+            const resultList = document.getElementById("resultsList");
+            const noResults = document.getElementById("noResults");
+
+            const handleSearch = () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const filteredCountries = countries.filter((country) => country.title.toLowerCase().includes(searchTerm));
+
+                resultList.innerHTML = "";
+
+                if (filteredCountries.length === 0) {
+                    noResults.style.display = "block";
+                } 
+                
+                else {
+                    filteredCountries.forEach((country) => {
+                        const li = document.createElement("li");
+                        li.textContent = country.title;
+                        li.addEventListener("click", () =>{
+                            searchInput.value = "";
+                            resultList.innerHTML = "";
+                            noResults.style.display = "none";
+                            location.href = country.page + "#" + country.id;
+                        });
+                        resultList.appendChild(li);
+                    });
+                    noResults.style.display = "none";
+                }
+
+                if (searchInput.value === "") {
+                    resultList.innerHTML = "";
+                }
+            };
+
+            searchInput.addEventListener("input", handleSearch);
+        </script>
+    </section>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cultura.html">Cultura</a></li>
+            <li><a href="tecnología.html">Tecnología</a></li>
+            <li><a href="competencias.html">Competencias</a></li>
+            <li><a href="deportes.html">Deportes</a></li>
+            <li><a href="sociales.html">Sociales</a></li>
+            <li><a href="celebraciones.html">Celebraciones</a></li>
+            <li><a href="obituarios.html">Obituarios</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section class="barra-superior">
+        <section class="barra-contenido">
+            <span class="fecha">Lunes 15 de junio de 2026</span>
+            <span class="categoria">Tecnología</span>
+        </section>
+    </section>
+
+    <!-- Título Principal -->
+    <section class="main-title">
+        <h1 id="noticia4">PLANTEL RECIBE SEGUNDA ENTREGA DE TABLETS DEL<br>PROGRAMA ESTATAL “MI TABLET”</h1>
+    </section>
+
+    <div class="content">
+        <!-- Columna Izquierda -->
+        <section class="left-column">
+            <article class="article">
+                <p>El Bachillerato General Plantel Tepojaco del Río informó que fue beneficiado con la segunda entrega de tablets electrónicas del programa estatal MiTablet, destinadas a estudiantes de segundo semestre y alumnos de nuevo ingreso.</p>
+                
+                <p>Este programa tiene como finalidad fortalecer el desarrollo de habilidades técnicas y apoyar el aprendizaje en el contexto de la educación digital. Las tablets representan una herramienta clave para facilitar el acceso a información, plataformas educativas y recursos académicos.</p>
+
+                <!-- Imagen -->
+                <img src="imagenes/img8.jpeg" alt="Estudiantes con tablets" class="photo">
+                <p class="small-caption">▲ Estudiantes con tablets</p>
+
+                <p>La institución expresó su agradecimiento al Gobernador Constitucional del Estado de Hidalgo, Julio Menchaca Salazar, así como a autoridades educativas estatales por la implementación de este programa que impulsa la formación académica en la entidad.</p>
+
+            </article>
+        </section>
+
+        <!-- Columna Derecha - Cajas negras -->
+        <aside class="right-column">
+            <div class="sidebar-box black-box">
+                <h3>PRIMERA ENTREGA DE TABLETS DEL PROGRAMA ESTATAL “MI TABLET”</h3>
+                <p class="date-box">6 de mayo de 2026</p>
+            </div>
+
+            <div class="sidebar-box black-box">
+                <h3>SEGUNDA ENTREGA DE TABLETS DEL PROGRAMA ESTATAL “MI TABLET”</h3>
+                <p class="date-box">16 de febrero de 2026</p>
+            </div>
+
+            <div class="sidebar-box black-box">
+                <h3>ANTECEDENTE PARA LA SEGUNDA ENTREGA</h3>
+                <p>Esta primera entrega marca el inicio de un segundo apoyo que permitirá a los estudiantes contar con una herramienta digital más completa y beneficiosa para su desarrollo académico.</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Sección inferior roja -->
+    <section class="voz-estudiantil">
+       <h2>VOZ ESTUDIANTIL EN LA PRIMERA ENTREGA DEL APOYO</h2>
+        <p>Uno de los momentos más significativos fue la participación de la alumna Lina Yuritzy Flores Campos, quien dirigió un mensaje a los presentes en representación del alumnado.</p>
+        <img src="imagenes/img9.jpeg" alt="Descripción de la imagen">
+    </section>
+</main>
+
+
+<footer>
+
+    <div class="nav_section">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="cultura.html">Cultura</a>
+            <a href="tecnología.html">Tecnología</a>
+            <a href="competencias.html">Competencias</a>
+            <a href="deportes.html">Deportes</a>
+            <a href="sociales.html">Sociales</a>
+            <a href="celebraciones.html">Celebraciones</a>
+            <a href="obituarios.html">Obituarios</a>
+        </nav>
+    </div>
+
+    <div class="consulta">
+        <p class="p1">Síguenos:</p>
+        <div class="consulta1">
+            <section class="consulta1">
+                    <div class="red">
+                        <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                    <div class="link">
+                        <p><a href="https://www.facebook.com/BachilleratoGenAztecaHgo">Bachillerato General Plantel Tepeji del Río</a></p>
+                    </div>
+            </section>
+
+            <section class="consulta1">
+                    <div class="red">
+                    <a href="https://www.bachillerato-hgo.edu.mx/">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    </div>
+                    <div class="link">
+                    <p><a href="https://www.facebook.com/BachilleratoGenAztecaHgo">Bachillerato del Estado de Hidalgo</a></p>
+                    </div>
+            </section>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+</html>
