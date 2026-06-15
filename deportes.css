@@ -1,0 +1,419 @@
+/* NOTICIA PRINCIPAL */
+
+/* Contenedor principal de la noticia */
+.noticia-principal {
+    max-width: 1100px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espaciado interno */
+    font-family: Georgia, serif; /* Fuente principal */
+    border: 2px solid black; /* Borde negro */
+}
+
+/* Título principal de la noticia */
+.titulo-principal {
+    font-size: 2.8rem; /* Tamaño grande del texto */
+    text-align: center; /* Centra el título */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    margin-bottom: 30px; /* Espacio inferior */
+    border-bottom: 4px solid #000; /* Línea decorativa inferior */
+    padding-bottom: 15px; /* Espacio entre texto y línea */
+}
+
+/* Distribuye texto e imagen en dos columnas */
+.contenido-principal {
+    display: flex;
+    gap: 40px; /* Espacio entre columnas */
+    align-items: flex-start;
+}
+
+/* Columna izquierda donde se encuentra el texto */
+.columna-izquierda {
+    flex: 1;
+}
+
+/* Subtítulo de la noticia */
+.subtitulo {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    color: #222;
+}
+
+/* Contenedor de párrafos */
+.texto {
+    line-height: 1.75;
+}
+
+/* Estilo de los párrafos */
+.texto p {
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+/* Columna derecha donde se ubica la imagen */
+.columna-derecha {
+    flex: 0 0 400px;
+}
+
+/* Imagen de la noticia */
+.imagen img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #000;
+}
+
+/* Pie de foto */
+.imagen figcaption {
+    font-style: italic;
+    margin-top: 10px;
+    text-align: center;
+    color: #444;
+}
+
+/* SECCIÓN TALENTO */
+
+/* Contenedor general de la sección */
+.seccion-talento {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    border: 2px solid black;
+}
+
+/* Distribuye imagen y texto */
+.contenido-seccion {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Columna donde se encuentra la imagen */
+.columna-imagen {
+    flex: 0 0 420px;
+}
+
+/* Configuración de imágenes */
+.imagen img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #000;
+}
+
+/* Pie de foto */
+.imagen figcaption {
+    font-style: italic;
+    margin-top: 10px;
+    text-align: center;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+/* Columna de texto */
+.columna-texto {
+    flex: 1;
+}
+
+/* Título de la sección */
+.titulo-seccion {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #000;
+    border-bottom: 2px solid #c00;
+    padding-bottom: 8px;
+}
+
+/* Párrafos de la sección */
+.columna-texto p {
+    margin-bottom: 18px;
+    line-height: 1.75;
+    text-align: justify;
+}
+
+/* SECCIÓN DOBLE */
+
+/* Contenedor principal */
+.seccion-doble {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    border: 2px solid black;
+}
+
+/* Organiza las columnas */
+.seccion-doble {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Cada columna */
+.columna {
+    flex: 1;
+    padding: 10px;
+}
+
+/* Títulos de las columnas */
+.titulo-columna {
+    font-size: 1.45rem;
+    margin-bottom: 15px;
+    color: #000;
+    border-bottom: 2px solid #c00;
+    padding-bottom: 8px;
+}
+
+/* Texto dentro de las columnas */
+.columna p {
+    line-height: 1.75;
+    text-align: justify;
+    color: #222;
+}
+
+/* BARRA SUPERIOR */
+
+/* Barra que contiene fecha y categoría */
+.barra-superior {
+    background-color: #8B0000;
+    padding: 14px 0;
+    width: 100%;
+    border-radius: 50px;
+    margin: 25px auto 35px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenido interno de la barra */
+.barra-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+    color: white;
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+/* Fecha */
+.fecha {
+    font-size: 1.08rem;
+}
+
+/* Categoría */
+.categoria {
+    font-size: 1.32rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* SECCIÓN VALORES */
+
+/* Contenedor principal */
+.seccion-valores {
+    padding: 35px 40px;
+    background: white;
+    border: 4px solid #000000;
+    border-radius: 8px;
+    max-width: 1150px;
+    margin: 20px auto;
+}
+
+/* Organiza las columnas */
+.contenido-valores {
+    display: flex;
+    gap: 45px;
+}
+
+/* Columnas izquierda y derecha */
+.columna-izquierda,
+.columna-derecha {
+    flex: 1;
+}
+
+/* Imágenes de la sección */
+.imagen-izquierda img,
+.imagen-derecha img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 320px !important;
+    object-fit: contain !important;
+    border: 4px solid #000000;
+    border-radius: 4px;
+    background: #f8f8f8;
+}
+
+/* Pie de foto */
+.imagen-izquierda figcaption,
+.imagen-derecha figcaption {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14.5px;
+    color: #000000;
+    font-style: italic;
+}
+
+/* Título principal */
+.titulo-principal {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Título secundario */
+.titulo-izquierdo {
+    font-size: 27px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin: 15px 0 20px 0;
+}
+
+/* Distribuye textos en dos columnas */
+.textos-lados {
+    display: flex;
+    gap: 35px;
+}
+
+/* Columnas de texto */
+.texto-izq,
+.texto-der {
+    flex: 1;
+}
+
+/* Párrafos */
+.texto-izq p,
+.texto-der p {
+    font-size: 16.5px;
+    line-height: 1.75;
+    text-align: justify;
+}
+
+/* Tarjeta del colaborador del mes */
+.colaborador-mes {
+    background: #f8f5ff;
+    border: 2px solid #000000;
+    padding: 18px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* SECCIÓN TRES COLUMNAS */
+
+/* Contenedor general */
+.seccion-tres-columnas {
+    background: white;
+    padding: 30px 40px;
+    border-top: 4px solid #000000;
+    border-bottom: 4px solid #000000;
+    margin: 25px 0;
+}
+
+/* Organiza las tres columnas */
+.contenedor-columnas {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Cada columna */
+.columna {
+    flex: 1;
+    position: relative;
+    padding-left: 25px;
+}
+
+/* Barra decorativa lateral naranja */
+.barra-naranja {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: #ff6200;
+}
+
+/* Título de la columna */
+.titulo-columna {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1f1f1f;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Contenido de la columna */
+.contenido-columna {
+    font-size: 17.5px;
+    line-height: 1.45;
+    color: #222;
+    margin: 0;
+}
+
+/* DISEÑO RESPONSIVO PARA CELULARES */
+
+@media (max-width: 760px) {
+
+    /* Cambia las columnas a formato vertical */
+    .contenido-principal {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .columna-derecha {
+        flex: none;
+        width: 100%;
+    }
+
+    .contenido-seccion {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .columna-imagen {
+        flex: none;
+        width: 100%;
+    }
+
+    .seccion-doble {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* Reduce el ancho de la barra superior */
+    .barra-superior {
+        width: 90%;
+    }
+
+    /* Ajusta tamaño del texto */
+    .barra-contenido span {
+        font-size: smaller;
+    }
+
+    .fecha,
+    .categoria {
+        font-size: 1rem;
+    }
+
+    /* Apila las tres columnas */
+    .contenedor-columnas {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* Cambia distribución de columnas a bloque */
+    .contenido-valores,
+    .textos-lados {
+        display: block;
+    }
+
+    /* Ajusta tamaño de imágenes */
+    .textos-lados img {
+        width: 80%;
+    }
+}

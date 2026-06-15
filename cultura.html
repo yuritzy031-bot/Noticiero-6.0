@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!-- Indica que el documento utiliza HTML5 -->
+
+<html lang="es">
+<!-- Inicio del documento HTML y definición del idioma español -->
+
+<head>
+    <!-- Configuración general de la página -->
+
+    <meta charset="UTF-8">
+    <!-- Permite mostrar caracteres especiales como acentos y ñ -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea adaptable a dispositivos móviles -->
+
+    <title>Noticiero 6.0</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cultura.css">
+    <!-- Vincula las hojas de estilos CSS externas -->
+
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+    <!-- Biblioteca de iconos Font Awesome -->
+</head>
+
+<body>
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <header>
+
+        <!-- Contenedor del logo, título y botón de ayuda -->
+        <div class="encabezado">
+
+            <!-- Logo -->
+            <img src="imagenes/logo.jpeg" alt="Logo" class="logo">
+
+            <!-- Nombre del periódico digital -->
+            <h1>Noticiero 6.0</h1>
+
+            <!-- Botón de ayuda -->
+            <div class="boton">
+                <a href="help.html">AYUDA</a>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN DEL BUSCADOR -->
+        <section class="buscador">
+
+            <!-- Contenedor principal del buscador -->
+            <div class="search-container">
+
+                <!-- Campo para escribir la búsqueda -->
+                <input type="text" id="searchInput" placeholder="Buscar noticia" />
+
+                <!-- Lista donde se mostrarán los resultados encontrados -->
+                <ul id="resultsList" class="results-list"></ul>
+
+                <!-- Mensaje cuando no existen coincidencias -->
+                <p id="noResults" class="no-results">No se encontraron resultados.</p>
+
+            </div>
+
+            <!-- Archivo JavaScript externo -->
+            <script src="app.js"></script>
+
+            <script>
+
+                /* Base de datos de noticias disponibles para el buscador */
+                const countries = [
+                    {
+                        title: "Noticias Variadas",
+                        page: "index.html",
+                        id: "noticia1",
+                    },
+
+                    {
+                        title: "Teoría del color",
+                        page: "cultura.html",
+                        id: "noticia2",
+                    },
+
+                    {
+                        title: "Constitución política",
+                        page: "cultura.html",
+                        id: "noticia3",
+                    },
+
+                    {
+                        title: "Entrega de tablets",
+                        page: "tecnología.html",
+                        id: "noticia4",
+                    },
+
+                    {
+                        title: "Campeones nacionales",
+                        page: "competencias.html",
+                        id: "noticia5",
+                    },
+
+                    {
+                        title: "Fútbol femenil",
+                        page: "deportes.html",
+                        id: "noticia6",
+                    },
+
+                    {
+                        title: "Día de San Valentín",
+                        page: "deportes.html",
+                        id: "noticia7",
+                    },
+
+                    {
+                        title: "Vinculación con instituciones",
+                        page: "sociales.html",
+                        id: "noticia8",
+                    },
+
+                    {
+                        title: "Solidaridad ante inundaciones",
+                        page: "sociales.html",
+                        id: "noticia9",
+                    },
+
+                    {
+                        title: "Conmemoraciones",
+                        page: "sociales.html",
+                        id: "noticia10"
+                    },
+
+                    {
+                        title: "Cumpleaños",
+                        page: "celebraciones.html",
+                        id: "noticia11"
+                    },
+
+                    {
+                        title: "Obituarios",
+                        page: "obituarios.html",
+                        id: "noticia12"
+                    }
+                ];
+
+                /* Obtiene los elementos del buscador */
+                const searchInput = document.getElementById("searchInput");
+                const resultList = document.getElementById("resultsList");
+                const noResults = document.getElementById("noResults");
+
+                /* Función que realiza la búsqueda */
+                const handleSearch = () => {
+
+                    /* Convierte el texto ingresado a minúsculas */
+                    const searchTerm = searchInput.value.toLowerCase();
+
+                    /* Filtra las noticias que coinciden con la búsqueda */
+                    const filteredCountries = countries.filter(
+                        (country) =>
+                            country.title.toLowerCase().includes(searchTerm)
+                    );
+
+                    /* Limpia resultados anteriores */
+                    resultList.innerHTML = "";
+
+                    /* Muestra mensaje si no hay coincidencias */
+                    if (filteredCountries.length === 0) {
+                        noResults.style.display = "block";
+                    }
+
+                    else {
+
+                        /* Genera una lista con los resultados encontrados */
+                        filteredCountries.forEach((country) => {
+
+                            const li = document.createElement("li");
+                            li.textContent = country.title;
+
+                            /* Envía al usuario a la noticia seleccionada */
+                            li.addEventListener("click", () => {
+
+                                /* Limpia el buscador */
+                                searchInput.value = "";
+                                resultList.innerHTML = "";
+                                noResults.style.display = "none";
+
+                                /* Redirige a la noticia */
+                                location.href = country.page + "#" + country.id;
+                            });
+
+                            resultList.appendChild(li);
+                        });
+
+                        noResults.style.display = "none";
+                    }
+
+                    /* Oculta los resultados si el campo está vacío */
+                    if (searchInput.value === "") {
+                        resultList.innerHTML = "";
+                    }
+                };
+
+                /* Ejecuta la búsqueda mientras el usuario escribe */
+                searchInput.addEventListener("input", handleSearch);
+
+            </script>
+
+        </section>
+
+        <!-- MENÚ DE NAVEGACIÓN PRINCIPAL -->
+        <nav>
+
+            <!-- Lista de enlaces a las diferentes pestañas -->
+            <ul class="menu">
+
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cultura.html">Cultura</a></li>
+                <li><a href="tecnología.html">Tecnología</a></li>
+                <li><a href="competencias.html">Competencias</a></li>
+                <li><a href="deportes.html">Deportes</a></li>
+                <li><a href="sociales.html">Sociales</a></li>
+                <li><a href="celebraciones.html">Celebraciones</a></li>
+                <li><a href="obituarios.html">Obituarios</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- CUERPO DE PÁGINA -->
+    <main>
+
+        <!-- Sección principal de Cultura -->
+        <section id="cultura">
+
+            <!-- Encabezado de la sección con nombre y fecha -->
+            <div class="encabezado-cultura">
+
+                <!-- Título de la sección -->
+                <div class="seccion-cultura">
+                    CULTURA
+                </div>
+
+                <!-- Fecha de publicación -->
+                <div class="fecha-cultura">
+                    Lunes 15 de junio de 2026
+                </div>
+
+            </div>
+
+            <!-- ===================== NOTICIA 1 ===================== -->
+
+            <!-- Título de la primera noticia -->
+            <h1 id="noticia2">
+                TEORÍA DEL COLOR: UNA EXPERIENCIA CREATIVA
+            </h1>
+
+            <!-- Artículo principal -->
+            <article class="noticia-principal">
+
+                <!-- Contenedor que organiza imagen y texto -->
+                <div class="contenedor-noticia-cultura">
+
+                    <!-- Información complementaria ubicada al costado -->
+                    <aside class="columna-cultura">
+
+                        <!-- Imagen principal de la actividad -->
+                        <img src="imagenes/pag1.1.jpg" alt="Actividad teoría del color">
+
+                        <!-- Pie de fotografía -->
+                        <p class="pie-cultura">
+                            ▲ Estudiantes trabajando con mezclas de colores primarios como parte de su formación en
+                            Diseño Digital.
+                        </p>
+
+                    </aside>
+
+                    <!-- Contenido escrito de la noticia -->
+                    <div class="contenido-cultura">
+
+                        <!-- Introducción de la actividad -->
+                        <p>
+                            Los alumnos del plantel participaron en una actividad práctica en la materia de Diseño
+                            Digital,
+                            con el objetivo de comprender de manera dinámica la teoría del color y su aplicación en el
+                            ámbito visual.
+                        </p>
+
+                        <!-- Desarrollo de la actividad -->
+                        <p>
+                            Durante la sesión, los estudiantes trabajaron con pintura vinílica y realizaron mezclas de
+                            colores
+                            primarios: rojo, azul y amarillo para observar cómo se obtienen los colores secundarios y
+                            terciarios.
+                            Además, identificaron los colores cálidos y fríos, así como los colores complementarios
+                            dentro del círculo cromático.
+                        </p>
+
+                        <!-- Conclusión y aprendizaje obtenido -->
+                        <p>
+                            La actividad permitió reforzar conceptos fundamentales como la armonía visual y el impacto
+                            emocional
+                            que los colores pueden generar en el diseño. A través de esta práctica, los alumnos no solo
+                            aprendieron teoría,
+                            sino que también experimentaron de forma artística, fomentando la creatividad y la
+                            percepción visual.
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Galería de imágenes complementarias -->
+                <div class="galeria-cultura">
+
+                    <img src="imagenes/pag1.2.jpg" alt="Sopa de letras">
+
+                    <img src="imagenes/pag1.3.jpg" alt="Círculo cromático">
+
+                </div>
+
+                <!-- Pie de foto de la galería -->
+                <p class="pie-cultura">
+                    ▲ Resultado de la actividad sobre la teoría del color realizada en la materia de Diseño Digital.
+                </p>
+
+            </article>
+
+            <!-- ===================== NOTICIA 2 ===================== -->
+
+            <article class="tarjeta-cultura">
+
+                <!-- Título de la segunda noticia -->
+                <h1 id="noticia3">
+                    CONSTITUCIÓN POLÍTICA DE LOS ESTADOS UNIDOS MEXICANOS
+                </h1>
+
+                <!-- Galería de carteles elaborados por los estudiantes -->
+                <div class="imagenes-carteles">
+
+                    <img src="imagenes/pag2.1.jpg" alt="Cartel Constitución 1">
+
+                    <img src="imagenes/pag2.2.jpg" alt="Cartel Constitución 2">
+
+                    <img src="imagenes/pag2.3.jpg" alt="Cartel Constitución 3">
+
+                </div>
+
+                <!-- Descripción de las imágenes -->
+                <p class="pie-constitucion">
+                    ▲ Exposición de carteles en conmemoración de la Constitución Política de los Estados Unidos
+                    Mexicanos.
+                </p>
+
+                <!-- Contenedor principal de texto e imagen -->
+                <div class="contenido-constitucion">
+
+                    <!-- Información de la noticia -->
+                    <div class="texto-constitucion">
+
+                        <!-- Subtítulo -->
+                        <h2>
+                            Estudiantes conmemoran la Constitución con exposición de carteles
+                        </h2>
+
+                        <!-- Introducción -->
+                        <p>
+                            En el marco de la conmemoración de la promulgación de la Constitución Política de los
+                            Estados Unidos Mexicanos,
+                            estudiantes del sexto semestre del Bachillerato General Plantel Tepeji del Río realizaron
+                            una exposición de
+                            carteles alusivos a este documento histórico.
+                        </p>
+
+                        <!-- Desarrollo -->
+                        <p>
+                            La actividad tuvo como propósito fortalecer la conciencia cívica y promover la reflexión
+                            entre la comunidad
+                            estudiantil sobre la importancia de la Constitución como base jurídica y social del país.
+                            Los trabajos fueron
+                            presentados ante alumnos y docentes durante el mes de febrero, generando un espacio de
+                            análisis y participación.
+                        </p>
+
+                        <!-- Importancia de la actividad -->
+                        <p>
+                            A través de la creatividad y el diseño visual, las y los estudiantes representaron valores
+                            como la justicia,
+                            la igualdad y los derechos fundamentales, demostrando que el arte también puede convertirse
+                            en una herramienta
+                            de expresión ciudadana.
+                        </p>
+
+                        <!-- Reconocimiento a la docente responsable -->
+                        <p>
+                            La institución reconoció el acompañamiento y seguimiento de la docente Elsa Hernández
+                            Flores,
+                            quien impulsó esta significativa actividad académica.
+                        </p>
+
+                    </div>
+
+                    <!-- Imagen relacionada con la noticia -->
+                    <div class="imagen-constitucion">
+                        <img src="imagenes/pag2.4.jpg" alt="Constitución Mexicana">
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <!-- Menú de navegación secundario ubicado en el pie de página -->
+        <div class="nav_section">
+
+            <nav>
+
+                <!-- Enlaces a las diferentes pestañas del periódico -->
+                <a href="index.html">Inicio</a>
+                <a href="cultura.html">Cultura</a>
+                <a href="tecnología.html">Tecnología</a>
+                <a href="competencias.html">Competencias</a>
+                <a href="deportes.html">Deportes</a>
+                <a href="sociales.html">Sociales</a>
+                <a href="celebraciones.html">Celebraciones</a>
+                <a href="obituarios.html">Obituarios</a>
+
+            </nav>
+
+        </div>
+
+        <!-- Sección de redes sociales y enlaces institucionales -->
+        <div class="consulta">
+
+            <!-- Título de la sección -->
+            <p>Síguenos:</p>
+
+            <!-- Contenedor de los enlaces externos -->
+            <div class="consulta1">
+
+                <!-- Enlace a la página oficial de Facebook del plantel -->
+                <section class="consulta1">
+
+                    <!-- Icono de Facebook -->
+                    <div class="red">
+                        <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre de la página de Facebook -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                                Bachillerato General Plantel Tepeji del Río
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+                <!-- Enlace al sitio web oficial del Bachillerato del Estado de Hidalgo -->
+                <section class="consulta1">
+
+                    <!-- Icono de sitio web -->
+                    <div class="red">
+                        <a href="https://www.bachillerato-hgo.edu.mx/">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre del sitio web institucional -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.bachillerato-hgo.edu.mx/">
+                                Bachillerato del Estado de Hidalgo
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+<!-- Fin del documento HTML -->
+
+</html>

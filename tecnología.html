@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<!-- Indica que el documento utiliza HTML5 -->
+
+<html lang="es">
+<!-- Inicio del documento HTML y definición del idioma español -->
+
+<head>
+    <!-- Configuración general de la página -->
+
+    <meta charset="UTF-8">
+    <!-- Permite mostrar caracteres especiales como acentos y ñ -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea adaptable a dispositivos móviles -->
+
+    <title>Noticiero 6.0</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tecnología.css">
+    <!-- Vincula las hojas de estilos CSS externas -->
+
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+    <!-- Biblioteca de iconos Font Awesome -->
+</head>
+
+<body>
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <header>
+
+        <!-- Contenedor del logo, título y botón de ayuda -->
+        <div class="encabezado">
+
+            <!-- Logo -->
+            <img src="imagenes/logo.jpeg" alt="Logo" class="logo">
+
+            <!-- Nombre del periódico digital -->
+            <h1>Noticiero 6.0</h1>
+
+            <!-- Botón de ayuda -->
+            <div class="boton">
+                <a href="help.html">AYUDA</a>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN DEL BUSCADOR -->
+        <section class="buscador">
+
+            <!-- Contenedor principal del buscador -->
+            <div class="search-container">
+
+                <!-- Campo para escribir la búsqueda -->
+                <input type="text" id="searchInput" placeholder="Buscar noticia" />
+
+                <!-- Lista donde se mostrarán los resultados encontrados -->
+                <ul id="resultsList" class="results-list"></ul>
+
+                <!-- Mensaje cuando no existen coincidencias -->
+                <p id="noResults" class="no-results">No se encontraron resultados.</p>
+
+            </div>
+
+            <!-- Archivo JavaScript externo -->
+            <script src="app.js"></script>
+
+            <script>
+
+                /* Base de datos de noticias disponibles para el buscador */
+                const countries = [
+                    {
+                        title: "Noticias Variadas",
+                        page: "index.html",
+                        id: "noticia1",
+                    },
+
+                    {
+                        title: "Teoría del color",
+                        page: "cultura.html",
+                        id: "noticia2",
+                    },
+
+                    {
+                        title: "Constitución política",
+                        page: "cultura.html",
+                        id: "noticia3",
+                    },
+
+                    {
+                        title: "Entrega de tablets",
+                        page: "tecnología.html",
+                        id: "noticia4",
+                    },
+
+                    {
+                        title: "Campeones nacionales",
+                        page: "competencias.html",
+                        id: "noticia5",
+                    },
+
+                    {
+                        title: "Fútbol femenil",
+                        page: "deportes.html",
+                        id: "noticia6",
+                    },
+
+                    {
+                        title: "Día de San Valentín",
+                        page: "deportes.html",
+                        id: "noticia7",
+                    },
+
+                    {
+                        title: "Vinculación con instituciones",
+                        page: "sociales.html",
+                        id: "noticia8",
+                    },
+
+                    {
+                        title: "Solidaridad ante inundaciones",
+                        page: "sociales.html",
+                        id: "noticia9",
+                    },
+
+                    {
+                        title: "Conmemoraciones",
+                        page: "sociales.html",
+                        id: "noticia10"
+                    },
+
+                    {
+                        title: "Cumpleaños",
+                        page: "celebraciones.html",
+                        id: "noticia11"
+                    },
+
+                    {
+                        title: "Obituarios",
+                        page: "obituarios.html",
+                        id: "noticia12"
+                    }
+                ];
+
+                /* Obtiene los elementos del buscador */
+                const searchInput = document.getElementById("searchInput");
+                const resultList = document.getElementById("resultsList");
+                const noResults = document.getElementById("noResults");
+
+                /* Función que realiza la búsqueda */
+                const handleSearch = () => {
+
+                    /* Convierte el texto ingresado a minúsculas */
+                    const searchTerm = searchInput.value.toLowerCase();
+
+                    /* Filtra las noticias que coinciden con la búsqueda */
+                    const filteredCountries = countries.filter(
+                        (country) =>
+                            country.title.toLowerCase().includes(searchTerm)
+                    );
+
+                    /* Limpia resultados anteriores */
+                    resultList.innerHTML = "";
+
+                    /* Muestra mensaje si no hay coincidencias */
+                    if (filteredCountries.length === 0) {
+                        noResults.style.display = "block";
+                    }
+
+                    else {
+
+                        /* Genera una lista con los resultados encontrados */
+                        filteredCountries.forEach((country) => {
+
+                            const li = document.createElement("li");
+                            li.textContent = country.title;
+
+                            /* Envía al usuario a la noticia seleccionada */
+                            li.addEventListener("click", () => {
+
+                                /* Limpia el buscador */
+                                searchInput.value = "";
+                                resultList.innerHTML = "";
+                                noResults.style.display = "none";
+
+                                /* Redirige a la noticia */
+                                location.href = country.page + "#" + country.id;
+                            });
+
+                            resultList.appendChild(li);
+                        });
+
+                        noResults.style.display = "none";
+                    }
+
+                    /* Oculta los resultados si el campo está vacío */
+                    if (searchInput.value === "") {
+                        resultList.innerHTML = "";
+                    }
+                };
+
+                /* Ejecuta la búsqueda mientras el usuario escribe */
+                searchInput.addEventListener("input", handleSearch);
+
+            </script>
+
+        </section>
+
+        <!-- MENÚ DE NAVEGACIÓN PRINCIPAL -->
+        <nav>
+
+            <!-- Lista de enlaces a las diferentes pestañas -->
+            <ul class="menu">
+
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cultura.html">Cultura</a></li>
+                <li><a href="tecnología.html">Tecnología</a></li>
+                <li><a href="competencias.html">Competencias</a></li>
+                <li><a href="deportes.html">Deportes</a></li>
+                <li><a href="sociales.html">Sociales</a></li>
+                <li><a href="celebraciones.html">Celebraciones</a></li>
+                <li><a href="obituarios.html">Obituarios</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- CUERPO DE PÁGINA -->
+    <main>
+        <!-- Contenedor principal de la noticia tecnológica -->
+
+        <!-- Barra superior que muestra la fecha de publicación y la categoría de la noticia -->
+        <section class="barra-superior">
+            <section class="barra-contenido">
+                <!-- Fecha de publicación -->
+                <span class="fecha">Lunes 15 de junio de 2026</span>
+
+                <!-- Categoría de la sección -->
+                <span class="categoria">Tecnología</span>
+            </section>
+        </section>
+
+        <!-- Título principal de la noticia -->
+        <section class="main-title">
+            <h1 id="noticia4">
+                PLANTEL RECIBE SEGUNDA ENTREGA DE TABLETS DEL
+                <br>
+                PROGRAMA ESTATAL “MI TABLET”
+            </h1>
+        </section>
+
+        <!-- Contenedor principal que divide la noticia en dos columnas -->
+        <div class="content">
+
+            <!-- Columna izquierda con el contenido principal de la noticia -->
+            <section class="left-column">
+
+                <!-- Artículo informativo -->
+                <article class="article">
+
+                    <!-- Introducción de la noticia -->
+                    <p>
+                        El Bachillerato General Plantel Tepojaco del Río informó que fue beneficiado con la segunda
+                        entrega de tablets electrónicas del programa estatal MiTablet, destinadas a estudiantes de
+                        segundo semestre y alumnos de nuevo ingreso.
+                    </p>
+
+                    <!-- Explicación de la finalidad del programa -->
+                    <p>
+                        Este programa tiene como finalidad fortalecer el desarrollo de habilidades técnicas y apoyar el
+                        aprendizaje en el contexto de la educación digital. Las tablets representan una herramienta
+                        clave para facilitar el acceso a información, plataformas educativas y recursos académicos.
+                    </p>
+
+                    <!-- Imagen relacionada con la entrega de tablets -->
+                    <img src="imagenes/img8.jpeg" alt="Estudiantes con tablets" class="photo">
+
+                    <!-- Pie de fotografía -->
+                    <p class="small-caption">
+                        ▲ Estudiantes beneficiados con la entrega de tablets electrónicas.
+                    </p>
+
+                    <!-- Agradecimiento institucional -->
+                    <p>
+                        La institución expresó su agradecimiento al Gobernador Constitucional del Estado de Hidalgo,
+                        Julio Menchaca Salazar, así como a autoridades educativas estatales por la implementación de
+                        este programa que impulsa la formación académica en la entidad.
+                    </p>
+
+                </article>
+
+            </section>
+
+            <!-- Columna derecha con información complementaria y antecedentes -->
+            <aside class="right-column">
+
+                <!-- Recuadro informativo sobre la primera entrega -->
+                <div class="sidebar-box black-box">
+                    <h3>PRIMERA ENTREGA DE TABLETS DEL PROGRAMA ESTATAL “MI TABLET”</h3>
+                    <p class="date-box">6 de mayo de 2026</p>
+                </div>
+
+                <!-- Recuadro informativo sobre la segunda entrega -->
+                <div class="sidebar-box black-box">
+                    <h3>SEGUNDA ENTREGA DE TABLETS DEL PROGRAMA ESTATAL “MI TABLET”</h3>
+                    <p class="date-box">16 de febrero de 2026</p>
+                </div>
+
+                <!-- Antecedente que explica la relación entre ambas entregas -->
+                <div class="sidebar-box black-box">
+                    <h3>ANTECEDENTE PARA LA SEGUNDA ENTREGA</h3>
+
+                    <p>
+                        Esta primera entrega marca el inicio de un segundo apoyo que permitirá a los estudiantes contar
+                        con una herramienta digital más completa y beneficiosa para su desarrollo académico.
+                    </p>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- Sección destacada dedicada a la participación estudiantil -->
+        <section class="voz-estudiantil">
+
+            <!-- Título de la sección -->
+            <h2>VOZ ESTUDIANTIL EN LA PRIMERA ENTREGA DEL APOYO</h2>
+
+            <!-- Texto descriptivo sobre la participación de una estudiante -->
+            <p>
+                Uno de los momentos más significativos fue la participación de la alumna Lina Yuritzy Flores Campos,
+                quien dirigió un mensaje a los presentes en representación del alumnado.
+            </p>
+
+            <!-- Fotografía de la participación estudiantil -->
+            <img src="imagenes/img9.jpeg" alt="Participación estudiantil durante la entrega de tablets">
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <!-- Menú de navegación secundario ubicado en el pie de página -->
+        <div class="nav_section">
+
+            <nav>
+
+                <!-- Enlaces a las diferentes pestañas del periódico -->
+                <a href="index.html">Inicio</a>
+                <a href="cultura.html">Cultura</a>
+                <a href="tecnología.html">Tecnología</a>
+                <a href="competencias.html">Competencias</a>
+                <a href="deportes.html">Deportes</a>
+                <a href="sociales.html">Sociales</a>
+                <a href="celebraciones.html">Celebraciones</a>
+                <a href="obituarios.html">Obituarios</a>
+
+            </nav>
+
+        </div>
+
+        <!-- Sección de redes sociales y enlaces institucionales -->
+        <div class="consulta">
+
+            <!-- Título de la sección -->
+            <p>Síguenos:</p>
+
+            <!-- Contenedor de los enlaces externos -->
+            <div class="consulta1">
+
+                <!-- Enlace a la página oficial de Facebook del plantel -->
+                <section class="consulta1">
+
+                    <!-- Icono de Facebook -->
+                    <div class="red">
+                        <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre de la página de Facebook -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                                Bachillerato General Plantel Tepeji del Río
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+                <!-- Enlace al sitio web oficial del Bachillerato del Estado de Hidalgo -->
+                <section class="consulta1">
+
+                    <!-- Icono de sitio web -->
+                    <div class="red">
+                        <a href="https://www.bachillerato-hgo.edu.mx/">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre del sitio web institucional -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.bachillerato-hgo.edu.mx/">
+                                Bachillerato del Estado de Hidalgo
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+<!-- Fin del documento HTML -->
+
+</html>

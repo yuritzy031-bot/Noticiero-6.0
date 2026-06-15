@@ -1,0 +1,410 @@
+/* CONFIGURACIÓN GENERAL DE LA PÁGINA */
+body {
+    margin: 0; /* Elimina los márgenes predeterminados del navegador */
+    font-family: 'Times New Roman', Times, serif; /* Define la fuente principal */
+    text-align: center; /* Centra el texto de forma predeterminada */
+}
+
+/* ==================== ENCABEZADO ==================== */
+
+header {
+    width: auto; /* Ajusta el ancho automáticamente */
+    background-color: rgb(105, 19, 19); /* Color de fondo guinda */
+    color: white; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+}
+
+.logo {
+    width: 200px; /* Ancho del logotipo */
+    height: 200px; /* Alto del logotipo */
+    padding-right: 20px; /* Espacio a la derecha */
+}
+
+h1 {
+    font-size: 100px; /* Tamaño del título principal */
+}
+
+header div {
+    display: flex; /* Organiza los elementos en fila */
+    margin: auto; /* Centra el contenedor */
+}
+
+/* BOTÓN DE AYUDA */
+.boton a {
+    text-decoration: none; /* Elimina el subrayado */
+    background: #221e66; /* Fondo azul oscuro */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.boton a:hover {
+    background-color: gray; /* Cambia el color al pasar el cursor */
+}
+
+/* ==================== MENÚ DE NAVEGACIÓN ==================== */
+
+.menu {
+    list-style: none; /* Elimina viñetas */
+    display: flex; /* Organiza los enlaces en fila */
+    justify-content: center; /* Centra los elementos */
+    gap: 20px; /* Espacio entre elementos */
+    padding: 0;
+}
+
+.menu a {
+    text-decoration: none; /* Quita subrayado */
+    background: #000000; /* Fondo negro */
+    color: white; /* Texto blanco */
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav ul a:hover {
+    background-color: gray; /* Cambia el fondo al pasar el cursor */
+}
+
+/* ==================== CONTENIDO PRINCIPAL ==================== */
+
+/* Título de la sección */
+.t {
+    margin-top: 40px;
+    text-align: left;
+    margin-left: 225px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* Contenedor principal */
+#index {
+    width: 90%;
+    margin: auto;
+    display: flex; /* Coloca galería e información en fila */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    min-height: 100vh; /* Altura mínima de toda la pantalla */
+}
+
+/* Bordes redondeados para imágenes */
+#index img {
+    border-radius: 15px;
+}
+
+/* ==================== SECCIÓN DE NOTICIAS ==================== */
+
+.noticias {
+    width: 60%;
+}
+
+.noticias h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ==================== GALERÍA ==================== */
+
+.galeria {
+    display: grid; /* Activa CSS Grid */
+    grid-template-columns: repeat(3, 150px); /* Tres columnas */
+    gap: 20px; /* Espacio entre imágenes */
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-right: 25px;
+}
+
+.galeria img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Evita deformaciones */
+}
+
+/* Cuadro decorativo */
+.cuadro {
+    height: 60px;
+    background: #2f3745;
+    border-radius: 5px;
+}
+
+/* ==================== INFORMACIÓN INSTITUCIONAL ==================== */
+
+.informacion {
+    width: 40%;
+    padding-left: 25px;
+    border-left: 2px solid #b52f43; /* Línea divisora */
+    margin-bottom: -10px;
+}
+
+.bloque {
+    margin-bottom: 30px;
+}
+
+.bloque h3 {
+    margin-bottom: 10px;
+}
+
+.bloque p {
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.bloque img {
+    width: 120px;
+}
+
+/* Ajustes adicionales */
+.noticias {
+    width: 60%;
+    padding-right: 30px;
+}
+
+.informacion {
+    width: 40%;
+    padding-left: 30px;
+    border-left: 3px solid #b52f43;
+}
+
+/* ==================== PIE DE PÁGINA ==================== */
+
+footer {
+    width: auto;
+    margin-top: 20px;
+    background: rgb(105, 19, 19);
+    display: flex;
+    flex-direction: column; /* Elementos uno debajo del otro */
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+/* Navegación del footer */
+.nav-section nav {
+    display: flex;
+    justify-content: center;
+}
+
+div nav a {
+    padding: 10px;
+    font-size: 20px;
+}
+
+div nav a:hover {
+    color: black;
+}
+
+.nav_section nav a {
+    color: white;
+}
+
+/* Sección de redes sociales */
+.consulta p {
+    color: black;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.consulta1 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 30px;
+    align-items: center;
+}
+
+/* Íconos de redes */
+.red a {
+    color: black;
+    background-color: white;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.red a:hover {
+    background-color: gray;
+}
+
+.red a i {
+    font-size: 20px;
+    transition: all .3s ease; /* Animación suave */
+}
+
+.red a i:hover {
+    transform: translateY(-2px); /* Eleva el ícono */
+}
+
+/* Enlaces de redes */
+.link p {
+    margin-top: 0%;
+}
+
+.link p a {
+    color: white;
+    font-size: 20px;
+}
+
+.link p a:hover {
+    color: black;
+}
+
+/* ==================== BUSCADOR ==================== */
+
+header section {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+/* Contenedor principal del buscador */
+.search-container {
+    position: relative;
+    width: 1000px;
+    margin-top: -40px;
+    margin-bottom: 30px;
+}
+
+/* Caja de texto */
+input[type="text"] {
+    width: 1000px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Lista de resultados */
+.results-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 9999;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+/* Elementos individuales */
+.results-list li {
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+    border-top: 1px solid #ccc;
+}
+
+.results-list li:hover {
+    background: #eee;
+}
+
+/* Mensaje cuando no hay resultados */
+.no-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    color: #666;
+    border-top: 2px solid #ccc;
+    z-index: 9999;
+    display: none;
+}
+
+/* ==================== DISEÑO RESPONSIVO ==================== */
+
+@media (max-width: 760px) {
+
+    /* Ajustes del encabezado */
+    .encabezado {
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    header {
+        padding: 5px;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+        padding-right: 0;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    /* Botón de ayuda */
+    .boton {
+        margin-left: 10px;
+    }
+
+    .boton a {
+        font-size: smaller;
+        padding: 5px 10px;
+    }
+
+    /* Buscador */
+    .search-container {
+        width: 300px;
+    }
+
+    /* Menú vertical */
+    .menu {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .menu a {
+        font-size: smaller;
+        padding: 5px 10px;
+    }
+
+    /* Footer */
+    div nav a {
+        margin: 5px;
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+
+    /* Contenido principal en columna */
+    #index {
+        display: block;
+    }
+
+    .t {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Galería adaptable */
+    .galeria {
+        grid-template-columns: repeat(2, 150px);
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Información institucional */
+    .informacion {
+        margin: auto;
+        width: 60%;
+    }
+
+    /* Redes sociales */
+    .consulta1 {
+        padding: 15px 0;
+        gap: 10px;
+    }
+
+    /* Oculta los textos de los enlaces */
+    .link p a {
+        display: none;
+    }
+}

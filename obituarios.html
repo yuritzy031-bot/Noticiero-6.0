@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<!-- Indica que el documento utiliza HTML5 -->
+
+<html lang="es">
+<!-- Inicio del documento HTML y definición del idioma español -->
+
+<head>
+    <!-- Configuración general de la página -->
+
+    <meta charset="UTF-8">
+    <!-- Permite mostrar caracteres especiales como acentos y ñ -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea adaptable a dispositivos móviles -->
+
+    <title>Noticiero 6.0</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="obituarios.css">
+    <!-- Vincula las hojas de estilos CSS externas -->
+
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+    <!-- Biblioteca de iconos Font Awesome -->
+</head>
+
+<body>
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <header>
+
+        <!-- Contenedor del logo, título y botón de ayuda -->
+        <div class="encabezado">
+
+            <!-- Logo -->
+            <img src="imagenes/logo.jpeg" alt="Logo" class="logo">
+
+            <!-- Nombre del periódico digital -->
+            <h1>Noticiero 6.0</h1>
+
+            <!-- Botón de ayuda -->
+            <div class="boton">
+                <a href="help.html">AYUDA</a>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN DEL BUSCADOR -->
+        <section class="buscador">
+
+            <!-- Contenedor principal del buscador -->
+            <div class="search-container">
+
+                <!-- Campo para escribir la búsqueda -->
+                <input type="text" id="searchInput" placeholder="Buscar noticia" />
+
+                <!-- Lista donde se mostrarán los resultados encontrados -->
+                <ul id="resultsList" class="results-list"></ul>
+
+                <!-- Mensaje cuando no existen coincidencias -->
+                <p id="noResults" class="no-results">No se encontraron resultados.</p>
+
+            </div>
+
+            <!-- Archivo JavaScript externo -->
+            <script src="app.js"></script>
+
+            <script>
+
+                /* Base de datos de noticias disponibles para el buscador */
+                const countries = [
+                    {
+                        title: "Noticias Variadas",
+                        page: "index.html",
+                        id: "noticia1",
+                    },
+
+                    {
+                        title: "Teoría del color",
+                        page: "cultura.html",
+                        id: "noticia2",
+                    },
+
+                    {
+                        title: "Constitución política",
+                        page: "cultura.html",
+                        id: "noticia3",
+                    },
+
+                    {
+                        title: "Entrega de tablets",
+                        page: "tecnología.html",
+                        id: "noticia4",
+                    },
+
+                    {
+                        title: "Campeones nacionales",
+                        page: "competencias.html",
+                        id: "noticia5",
+                    },
+
+                    {
+                        title: "Fútbol femenil",
+                        page: "deportes.html",
+                        id: "noticia6",
+                    },
+
+                    {
+                        title: "Día de San Valentín",
+                        page: "deportes.html",
+                        id: "noticia7",
+                    },
+
+                    {
+                        title: "Vinculación con instituciones",
+                        page: "sociales.html",
+                        id: "noticia8",
+                    },
+
+                    {
+                        title: "Solidaridad ante inundaciones",
+                        page: "sociales.html",
+                        id: "noticia9",
+                    },
+
+                    {
+                        title: "Conmemoraciones",
+                        page: "sociales.html",
+                        id: "noticia10"
+                    },
+
+                    {
+                        title: "Cumpleaños",
+                        page: "celebraciones.html",
+                        id: "noticia11"
+                    },
+
+                    {
+                        title: "Obituarios",
+                        page: "obituarios.html",
+                        id: "noticia12"
+                    }
+                ];
+
+                /* Obtiene los elementos del buscador */
+                const searchInput = document.getElementById("searchInput");
+                const resultList = document.getElementById("resultsList");
+                const noResults = document.getElementById("noResults");
+
+                /* Función que realiza la búsqueda */
+                const handleSearch = () => {
+
+                    /* Convierte el texto ingresado a minúsculas */
+                    const searchTerm = searchInput.value.toLowerCase();
+
+                    /* Filtra las noticias que coinciden con la búsqueda */
+                    const filteredCountries = countries.filter(
+                        (country) =>
+                            country.title.toLowerCase().includes(searchTerm)
+                    );
+
+                    /* Limpia resultados anteriores */
+                    resultList.innerHTML = "";
+
+                    /* Muestra mensaje si no hay coincidencias */
+                    if (filteredCountries.length === 0) {
+                        noResults.style.display = "block";
+                    }
+
+                    else {
+
+                        /* Genera una lista con los resultados encontrados */
+                        filteredCountries.forEach((country) => {
+
+                            const li = document.createElement("li");
+                            li.textContent = country.title;
+
+                            /* Envía al usuario a la noticia seleccionada */
+                            li.addEventListener("click", () => {
+
+                                /* Limpia el buscador */
+                                searchInput.value = "";
+                                resultList.innerHTML = "";
+                                noResults.style.display = "none";
+
+                                /* Redirige a la noticia */
+                                location.href = country.page + "#" + country.id;
+                            });
+
+                            resultList.appendChild(li);
+                        });
+
+                        noResults.style.display = "none";
+                    }
+
+                    /* Oculta los resultados si el campo está vacío */
+                    if (searchInput.value === "") {
+                        resultList.innerHTML = "";
+                    }
+                };
+
+                /* Ejecuta la búsqueda mientras el usuario escribe */
+                searchInput.addEventListener("input", handleSearch);
+
+            </script>
+
+        </section>
+
+        <!-- MENÚ DE NAVEGACIÓN PRINCIPAL -->
+        <nav>
+
+            <!-- Lista de enlaces a las diferentes pestañas -->
+            <ul class="menu">
+
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cultura.html">Cultura</a></li>
+                <li><a href="tecnología.html">Tecnología</a></li>
+                <li><a href="competencias.html">Competencias</a></li>
+                <li><a href="deportes.html">Deportes</a></li>
+                <li><a href="sociales.html">Sociales</a></li>
+                <li><a href="celebraciones.html">Celebraciones</a></li>
+                <li><a href="obituarios.html">Obituarios</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- CUERPO DE PÁGINA -->
+    <main>
+        <!-- Contenedor principal de la página de obituarios -->
+        <section id="obituarios" class="pagina">
+
+            <!-- Título principal de la sección -->
+            <h2>OBITUARIOS</h2>
+
+            <!-- Subtítulo con mensaje de condolencias -->
+            <h3 class="o-title" id="noticia11">Condolencias para ellos</h3>
+
+            <!-- Mensaje introductorio dirigido a las familias afectadas -->
+            <h4>
+                El Bachillerato General Plantel Tepeji brinda sus mayores condolencias a todas las familias que
+                desafortunadamente perdieron un ser querido
+            </h4>
+
+            <!-- Contenedor que agrupa todas las tarjetas de obituarios -->
+            <section class="tarjetas">
+
+                <!-- Obituario 1 -->
+                <details class="ds3">
+                    <summary>
+                        <!-- Imagen conmemorativa de la persona fallecida -->
+                        <img src="imagenes/imagen21.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>Julia García Domínguez</p>
+                    <p>Abuela del Ing. José Ramón Cornejo Ortiz</p>
+                    <p>(Coordinador Operativo del Plantel)</p>
+                </details>
+
+                <!-- Obituario 2 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen22.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>Aristeo Estrada Contreras</p>
+                    <p>Abuelo de los alumnos Daniela Estrada Ramírez y Victor Hugo Estrada Ramírez</p>
+                </details>
+
+                <!-- Obituario 3 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen23.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>Zeferino Ángeles López</p>
+                    <p>Padre de Armando Ángeles López</p>
+                </details>
+
+                <!-- Obituario 4 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen24.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>José Luis Vázquez Monroy</p>
+                    <p>Tío del alumno Luis Mario Vázquez Miranda</p>
+                </details>
+
+                <!-- Obituario 5 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen25.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>María Concepción Guerrero Cano</p>
+                    <p>Abuela de la alumna Vanessa Zúñiga Castillo</p>
+                </details>
+
+                <!-- Obituario 6 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen26.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>Adela Rodea Santillán</p>
+                    <p>Abuela del alumno Kevin Guadalupe Alonso Ramírez</p>
+                </details>
+
+                <!-- Obituario 7 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen27.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>Cirilio Pérez Cuevas</p>
+                    <p>Abuelo de la alumna Estrella Pérez Santiago</p>
+                </details>
+
+                <!-- Obituario 8 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen28.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>Pablo Alonso Caballero</p>
+                    <p>Abuelo del alumno Kevin Guadalupe Alonso Ramírez</p>
+                </details>
+
+                <!-- Obituario 9 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen29.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>Jorge Miranda Barreto</p>
+                    <p>Abuelo de la Lic. Yaneth Lucero Miranda Miranda</p>
+                    <p>(Directora del Plantel)</p>
+                </details>
+
+                <!-- Obituario 10 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen30.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>María Guadalupe González Arellano</p>
+                    <p>Abuela de la alumna Ximena Michell Rosales González</p>
+                </details>
+
+                <!-- Obituario 11 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen31.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>Aurora García Soto</p>
+                    <p>Madre de la Lic. Claudia Ocadiz García</p>
+                    <p>(Directora de Academia)</p>
+                </details>
+
+                <!-- Obituario 12 -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen32.jpeg" alt="Obituario" class="imagen">
+                    </summary>
+                    <p>DESCANSE EN PAZ</p>
+                    <p>María Gil Anastacio</p>
+                    <p>Abuela de Arizbeth Jiménez Gutiérrez</p>
+                    <p>(Prefecta del Plantel)</p>
+                </details>
+
+            </section>
+            <!-- Fin del contenedor de tarjetas de obituarios -->
+
+        </section>
+        <!-- Fin de la sección de obituarios -->
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <!-- Menú de navegación secundario ubicado en el pie de página -->
+        <div class="nav_section">
+
+            <nav>
+
+                <!-- Enlaces a las diferentes pestañas del periódico -->
+                <a href="index.html">Inicio</a>
+                <a href="cultura.html">Cultura</a>
+                <a href="tecnología.html">Tecnología</a>
+                <a href="competencias.html">Competencias</a>
+                <a href="deportes.html">Deportes</a>
+                <a href="sociales.html">Sociales</a>
+                <a href="celebraciones.html">Celebraciones</a>
+                <a href="obituarios.html">Obituarios</a>
+
+            </nav>
+
+        </div>
+
+        <!-- Sección de redes sociales y enlaces institucionales -->
+        <div class="consulta">
+
+            <!-- Título de la sección -->
+            <p>Síguenos:</p>
+
+            <!-- Contenedor de los enlaces externos -->
+            <div class="consulta1">
+
+                <!-- Enlace a la página oficial de Facebook del plantel -->
+                <section class="consulta1">
+
+                    <!-- Icono de Facebook -->
+                    <div class="red">
+                        <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre de la página de Facebook -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                                Bachillerato General Plantel Tepeji del Río
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+                <!-- Enlace al sitio web oficial del Bachillerato del Estado de Hidalgo -->
+                <section class="consulta1">
+
+                    <!-- Icono de sitio web -->
+                    <div class="red">
+                        <a href="https://www.bachillerato-hgo.edu.mx/">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre del sitio web institucional -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.bachillerato-hgo.edu.mx/">
+                                Bachillerato del Estado de Hidalgo
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+<!-- Fin del documento HTML -->
+
+</html>

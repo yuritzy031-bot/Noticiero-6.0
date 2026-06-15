@@ -1,0 +1,133 @@
+/* TÍTULO PRINCIPAL */
+h2 {
+    font-size: 60px;
+    /* Tamaño de letra del título principal */
+    width: 80%;
+    /* Ocupa el 80% del ancho disponible */
+    margin: auto;
+    /* Centra el elemento horizontalmente */
+    margin-top: 50px;
+    /* Espacio superior */
+    padding: 20px;
+    /* Espacio interno */
+}
+
+/* SUBTÍTULO */
+h3 {
+    font-size: 40px;
+    /* Tamaño de letra del subtítulo */
+    width: 80%;
+    /* Ocupa el 80% del ancho disponible */
+    margin: auto;
+    /* Centra el elemento horizontalmente */
+    padding: 20px;
+    /* Espacio interno */
+}
+
+/* LÍNEA DECORATIVA DEBAJO DEL TÍTULO PRINCIPAL */
+h2::after {
+    content: "";
+    /* Crea un elemento vacío */
+    display: block;
+    /* Permite que ocupe una línea completa */
+    width: 80%;
+    /* Ancho de la línea */
+    height: 4px;
+    /* Grosor de la línea */
+    background: rgb(105, 19, 19);
+    /* Color guinda */
+    margin: auto;
+    /* Centra la línea */
+}
+
+/* LÍNEA DECORATIVA DEBAJO DEL SUBTÍTULO */
+h3::after {
+    content: "";
+    /* Crea un elemento vacío */
+    display: block;
+    /* Permite que ocupe una línea completa */
+    width: 80%;
+    /* Ancho de la línea */
+    height: 4px;
+    /* Grosor de la línea */
+    background: rgb(105, 19, 19);
+    /* Color guinda */
+    margin: auto;
+    /* Centra la línea */
+}
+
+/* TARJETAS DE CUMPLEAÑOS */
+.ds3 {
+    background: white;
+    /* Fondo blanco */
+    padding: 20px;
+    /* Espacio interno */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    width: 300px;
+    /* Ancho de cada tarjeta */
+    border: 3px solid rgb(105, 19, 19);
+    /* Borde guinda */
+    font-size: larger;
+    /* Tamaño de texto más grande */
+    margin-top: 20px;
+    /* Separación superior */
+}
+
+/* ENCABEZADO DE CADA TARJETA (<summary>) */
+summary {
+    font-size: 25px;
+    /* Tamaño de letra */
+    font-weight: bold;
+    /* Texto en negrita */
+    cursor: pointer;
+    /* Cambia el cursor al pasar encima */
+}
+
+/* CONTENEDOR DE LAS TARJETAS */
+.tarjetas {
+    display: flex;
+    /* Activa Flexbox */
+    justify-content: center;
+    /* Centra las tarjetas */
+    gap: 20px;
+    /* Espacio entre tarjetas */
+    flex-wrap: wrap;
+    /* Permite que bajen a otra fila */
+}
+
+/* IMÁGENES DE LAS TARJETAS */
+.imagen {
+    width: 200px;
+    /* Ancho de la imagen */
+    border-radius: 15px;
+    /* Bordes redondeados */
+}
+
+/* AJUSTE DE IMÁGENES DENTRO DE SUMMARY */
+details summary img {
+    height: auto;
+    /* Mantiene las proporciones originales */
+}
+
+/* DISEÑO RESPONSIVO PARA CELULARES */
+@media (max-width: 760px) {
+
+    /* Reduce el tamaño del título principal */
+    h2 {
+        font-size: 30px;
+    }
+
+    /* Reduce el tamaño del subtítulo */
+    h3 {
+        font-size: 20px;
+    }
+
+    /* Ajusta el texto de los encabezados h4 */
+    h4 {
+        font-size: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+}

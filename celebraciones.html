@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<!-- Indica que el documento utiliza HTML5 -->
+
+<html lang="es">
+<!-- Inicio del documento HTML y definición del idioma español -->
+
+<head>
+    <!-- Configuración general de la página -->
+
+    <meta charset="UTF-8">
+    <!-- Permite mostrar caracteres especiales como acentos y ñ -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea adaptable a dispositivos móviles -->
+
+    <title>Noticiero 6.0</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="celebraciones.css">
+    <!-- Vincula las hojas de estilos CSS externas -->
+
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+    <!-- Biblioteca de iconos Font Awesome -->
+</head>
+
+<body>
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <header>
+
+        <!-- Contenedor del logo, título y botón de ayuda -->
+        <div class="encabezado">
+
+            <!-- Logo -->
+            <img src="imagenes/logo.jpeg" alt="Logo" class="logo">
+
+            <!-- Nombre del periódico digital -->
+            <h1>Noticiero 6.0</h1>
+
+            <!-- Botón de ayuda -->
+            <div class="boton">
+                <a href="help.html">AYUDA</a>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN DEL BUSCADOR -->
+        <section class="buscador">
+
+            <!-- Contenedor principal del buscador -->
+            <div class="search-container">
+
+                <!-- Campo para escribir la búsqueda -->
+                <input type="text" id="searchInput" placeholder="Buscar noticia" />
+
+                <!-- Lista donde se mostrarán los resultados encontrados -->
+                <ul id="resultsList" class="results-list"></ul>
+
+                <!-- Mensaje cuando no existen coincidencias -->
+                <p id="noResults" class="no-results">No se encontraron resultados.</p>
+
+            </div>
+
+            <!-- Archivo JavaScript externo -->
+            <script src="app.js"></script>
+
+            <script>
+
+                /* Base de datos de noticias disponibles para el buscador */
+                const countries = [
+                    {
+                        title: "Noticias Variadas",
+                        page: "index.html",
+                        id: "noticia1",
+                    },
+
+                    {
+                        title: "Teoría del color",
+                        page: "cultura.html",
+                        id: "noticia2",
+                    },
+
+                    {
+                        title: "Constitución política",
+                        page: "cultura.html",
+                        id: "noticia3",
+                    },
+
+                    {
+                        title: "Entrega de tablets",
+                        page: "tecnología.html",
+                        id: "noticia4",
+                    },
+
+                    {
+                        title: "Campeones nacionales",
+                        page: "competencias.html",
+                        id: "noticia5",
+                    },
+
+                    {
+                        title: "Fútbol femenil",
+                        page: "deportes.html",
+                        id: "noticia6",
+                    },
+
+                    {
+                        title: "Día de San Valentín",
+                        page: "deportes.html",
+                        id: "noticia7",
+                    },
+
+                    {
+                        title: "Vinculación con instituciones",
+                        page: "sociales.html",
+                        id: "noticia8",
+                    },
+
+                    {
+                        title: "Solidaridad ante inundaciones",
+                        page: "sociales.html",
+                        id: "noticia9",
+                    },
+
+                    {
+                        title: "Conmemoraciones",
+                        page: "sociales.html",
+                        id: "noticia10"
+                    },
+
+                    {
+                        title: "Cumpleaños",
+                        page: "celebraciones.html",
+                        id: "noticia11"
+                    },
+
+                    {
+                        title: "Obituarios",
+                        page: "obituarios.html",
+                        id: "noticia12"
+                    }
+                ];
+
+                /* Obtiene los elementos del buscador */
+                const searchInput = document.getElementById("searchInput");
+                const resultList = document.getElementById("resultsList");
+                const noResults = document.getElementById("noResults");
+
+                /* Función que realiza la búsqueda */
+                const handleSearch = () => {
+
+                    /* Convierte el texto ingresado a minúsculas */
+                    const searchTerm = searchInput.value.toLowerCase();
+
+                    /* Filtra las noticias que coinciden con la búsqueda */
+                    const filteredCountries = countries.filter(
+                        (country) =>
+                            country.title.toLowerCase().includes(searchTerm)
+                    );
+
+                    /* Limpia resultados anteriores */
+                    resultList.innerHTML = "";
+
+                    /* Muestra mensaje si no hay coincidencias */
+                    if (filteredCountries.length === 0) {
+                        noResults.style.display = "block";
+                    }
+
+                    else {
+
+                        /* Genera una lista con los resultados encontrados */
+                        filteredCountries.forEach((country) => {
+
+                            const li = document.createElement("li");
+                            li.textContent = country.title;
+
+                            /* Envía al usuario a la noticia seleccionada */
+                            li.addEventListener("click", () => {
+
+                                /* Limpia el buscador */
+                                searchInput.value = "";
+                                resultList.innerHTML = "";
+                                noResults.style.display = "none";
+
+                                /* Redirige a la noticia */
+                                location.href = country.page + "#" + country.id;
+                            });
+
+                            resultList.appendChild(li);
+                        });
+
+                        noResults.style.display = "none";
+                    }
+
+                    /* Oculta los resultados si el campo está vacío */
+                    if (searchInput.value === "") {
+                        resultList.innerHTML = "";
+                    }
+                };
+
+                /* Ejecuta la búsqueda mientras el usuario escribe */
+                searchInput.addEventListener("input", handleSearch);
+
+            </script>
+
+        </section>
+
+        <!-- MENÚ DE NAVEGACIÓN PRINCIPAL -->
+        <nav>
+
+            <!-- Lista de enlaces a las diferentes pestañas -->
+            <ul class="menu">
+
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cultura.html">Cultura</a></li>
+                <li><a href="tecnología.html">Tecnología</a></li>
+                <li><a href="competencias.html">Competencias</a></li>
+                <li><a href="deportes.html">Deportes</a></li>
+                <li><a href="sociales.html">Sociales</a></li>
+                <li><a href="celebraciones.html">Celebraciones</a></li>
+                <li><a href="obituarios.html">Obituarios</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- CUERPO DE PÁGINA -->
+    <main>
+
+        <!-- Sección principal de celebraciones del plantel -->
+        <section id="celebraciones" class="pagina">
+
+            <!-- Título principal de la página -->
+            <h2>CELEBRACIONES DEL BACHILLERATO PLANTEL TEPEJI</h2>
+
+            <!-- Título de la sección de cumpleaños -->
+            <h3 class="Celebraciones-title" id="noticia11">¡FELIZ CUMPLEAÑOS!</h3>
+
+            <!-- Mensaje de felicitación general -->
+            <h4>
+                El Bachillerato General Plantel Tepeji da con un cálido abrazo
+                una gran felicitación a todos los cumplañeros
+            </h4>
+
+            <!-- Contenedor de tarjetas desplegables con información de cumpleaños -->
+            <section class="tarjetas">
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <!-- Fotografía de la persona -->
+                        <img src="imagenes/imagen1.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <!-- Información de cumpleaños -->
+                    <p>27 de Enero</p>
+                    <p>Docente de Ingles</p>
+                    <p>Lic. Elsa Elideth Vázquez Paz</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen2.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>20 de Febrero</p>
+                    <p>Docente de Derecho</p>
+                    <p>Lic. Sadot Eleazar Monroy Valencia</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen3.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>21 de Febrero</p>
+                    <p>Subdirectora Académica</p>
+                    <p>Lic. Olga Lidia Pérez Escobar</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen4.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>4 de Marzo</p>
+                    <p>Docente de Educación Física</p>
+                    <p>Lic. Francisco Javier Castelazo Zamora</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen5.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>16 de Marzo</p>
+                    <p>Diputado</p>
+                    <p>Dip. José Luis Rodríguez Higareda</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen6.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>31 de Marzo</p>
+                    <p>Subsecretario de Educación Media Superior y Superior</p>
+                    <p>Dr. Daniel Fragoso Torres</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen7.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>13 de Abril</p>
+                    <p>Director General del Bachillerato del Estado de Hidalgo</p>
+                    <p>Mtro. Elias Cornejo Sanchez</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen8.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>16 de Abril</p>
+                    <p>Diputada Federal por el Distrito 5</p>
+                    <p>Dip. Astrit Viridiana Cornejo Gómez</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen9.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>1 de Mayo</p>
+                    <p>Personal de intendencia</p>
+                    <p>Berta Ligia Jiménez Olguín</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen10.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>19 de Mayo</p>
+                    <p>Docente de Matemáticas</p>
+                    <p>Ing. Aldo Pedro González Ávila</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen11.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>5 de Julio</p>
+                    <p>Directora del Plantel</p>
+                    <p>Lic. Yaneth Lucero Miranda Miranda</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen12.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>23 de Junio</p>
+                    <p>Docente de Química</p>
+                    <p>Ing. Jonathan Michael Ángeles Nava</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen13.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>17 de Agosto</p>
+                    <p>Docente de Computación</p>
+                    <p>Ing. María del Rosario Bautista Montoya</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen14.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>5 de Septiembre</p>
+                    <p>Secretario de Educación del Estado de Hidalgo</p>
+                    <p>Natividad Castrejon Valdez</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen15.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>9 de Septiembre</p>
+                    <p>Secretaria</p>
+                    <p>Mariela Guadalupe Quiréz Miranda</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen16.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>13 de Octubre</p>
+                    <p>Docente de Comunicación</p>
+                    <p>Lic. Nubia Nelly Vázquez Paz</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen17.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>11 de Noviembre</p>
+                    <p>Prefecta</p>
+                    <p>Arizbeth Jiménez Gutiérrez</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen18.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>19 de Noviembre</p>
+                    <p>Coordinador Operativo de la Zona 05 Tepeji Huichapan</p>
+                    <p>Miguel Angel Bautista Mota</p>
+                </details>
+
+                <!-- Tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen19.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>23 de Noviembre</p>
+                    <p>Coordinador Operativo del Plantel</p>
+                    <p>Ing. José Ramón Cornejo Ortiz</p>
+                </details>
+
+                <!-- Última tarjeta de cumpleaños -->
+                <details class="ds3">
+                    <summary>
+                        <img src="imagenes/imagen20.jpeg" alt="Cumpleaños" class="imagen">
+                    </summary>
+
+                    <p>21 de Diciembre</p>
+                    <p>Docente</p>
+                    <p>Lic. María del Carmen Barrera Navarrete</p>
+                </details>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <!-- Menú de navegación secundario ubicado en el pie de página -->
+        <div class="nav_section">
+
+            <nav>
+
+                <!-- Enlaces a las diferentes pestañas del periódico -->
+                <a href="index.html">Inicio</a>
+                <a href="cultura.html">Cultura</a>
+                <a href="tecnología.html">Tecnología</a>
+                <a href="competencias.html">Competencias</a>
+                <a href="deportes.html">Deportes</a>
+                <a href="sociales.html">Sociales</a>
+                <a href="celebraciones.html">Celebraciones</a>
+                <a href="obituarios.html">Obituarios</a>
+
+            </nav>
+
+        </div>
+
+        <!-- Sección de redes sociales y enlaces institucionales -->
+        <div class="consulta">
+
+            <!-- Título de la sección -->
+            <p>Síguenos:</p>
+
+            <!-- Contenedor de los enlaces externos -->
+            <div class="consulta1">
+
+                <!-- Enlace a la página oficial de Facebook del plantel -->
+                <section class="consulta1">
+
+                    <!-- Icono de Facebook -->
+                    <div class="red">
+                        <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre de la página de Facebook -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                                Bachillerato General Plantel Tepeji del Río
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+                <!-- Enlace al sitio web oficial del Bachillerato del Estado de Hidalgo -->
+                <section class="consulta1">
+
+                    <!-- Icono de sitio web -->
+                    <div class="red">
+                        <a href="https://www.bachillerato-hgo.edu.mx/">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre del sitio web institucional -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.bachillerato-hgo.edu.mx/">
+                                Bachillerato del Estado de Hidalgo
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+<!-- Fin del documento HTML -->
+
+</html>

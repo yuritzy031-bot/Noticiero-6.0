@@ -1,0 +1,101 @@
+/* Configura el estilo general de los títulos h2 */
+h2 {
+    font-size: 60px;      /* Tamaño grande para destacar el título */
+    width: 80%;           /* Limita el ancho del título */
+    margin: auto;         /* Centra horizontalmente */
+    margin-top: 50px;     /* Espacio superior */
+    padding: 20px;        /* Espaciado interno */
+}
+
+/* Configura el estilo general de los subtítulos h3 */
+h3 {
+    font-size: 40px;      /* Tamaño menor que h2 */
+    width: 80%;           /* Mantiene alineación uniforme */
+    margin: auto;         /* Centra horizontalmente */
+    padding: 20px;        /* Espaciado interno */
+}
+
+/* Agrega una línea decorativa debajo de cada título h2 */
+h2::after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 4px;
+    background: rgb(105, 19, 19); /* Color institucional */
+    margin: auto;
+}
+
+/* Agrega una línea decorativa debajo de cada subtítulo h3 */
+h3::after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 4px;
+    background: rgb(105, 19, 19);
+    margin: auto;
+}
+
+/* TARJETAS DE OBITUARIOS */
+
+/* Diseña cada tarjeta individual */
+.ds3 {
+    background: white;                    /* Fondo blanco */
+    padding: 20px;                        /* Espaciado interno */
+    border-radius: 10px;                  /* Bordes redondeados */
+    width: 300px;                         /* Ancho fijo */
+    border: 3px solid rgb(105, 19, 19);   /* Borde color vino */
+    font-size: larger;                    /* Texto ligeramente más grande */
+    margin-top: 20px;                     /* Separación superior */
+}
+
+/* Estilo del encabezado desplegable de cada tarjeta */
+summary {
+    font-size: 25px;      /* Tamaño destacado */
+    font-weight: bold;    /* Texto en negritas */
+    cursor: pointer;      /* Cambia el cursor al pasar encima */
+}
+
+/* CONTENEDOR DE TARJETAS */
+
+/* Organiza todas las tarjetas en filas flexibles */
+.tarjetas {
+    display: flex;                /* Activa Flexbox */
+    justify-content: center;      /* Centra las tarjetas */
+    gap: 20px;                    /* Espacio entre tarjetas */
+    flex-wrap: wrap;              /* Permite que bajen a otra fila */
+}
+
+/* IMÁGENES */
+
+/* Configura el tamaño de las imágenes dentro de las tarjetas */
+.imagen {
+    width: 200px;         /* Ancho fijo */
+    border-radius: 15px; /* Bordes redondeados */
+}
+
+/* Mantiene la proporción original de las imágenes */
+details summary img {
+    height: auto;
+}
+
+/* DISEÑO RESPONSIVO PARA CELULARES */
+@media (max-width: 760px) {
+
+    /* Reduce el tamaño de los títulos principales */
+    h2 {
+        font-size: 40px;
+    }
+
+    /* Reduce el tamaño de los subtítulos */
+    h3 {
+        font-size: 20px;
+    }
+
+    /* Ajusta el texto descriptivo para una mejor visualización */
+    h4 {
+        font-size: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+}

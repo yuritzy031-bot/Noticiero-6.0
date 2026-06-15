@@ -1,0 +1,312 @@
+/* CONTENEDOR PRINCIPAL DE LA NOTICIA */
+.campeones-container {
+    max-width: 1100px;
+    /* Ancho máximo del contenedor */
+    margin: 30px auto;
+    /* Centra el contenedor horizontalmente */
+    background: white;
+    /* Fondo blanco */
+    border-radius: 25px;
+    /* Bordes redondeados */
+    overflow: hidden;
+    /* Oculta contenido que sobresalga */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra exterior */
+}
+
+/* ENCABEZADO CON FECHA Y SECCIÓN */
+.header-date {
+    background: #6e1a1a;
+    /* Fondo color guinda */
+    color: white;
+    /* Texto blanco */
+    padding: 12px 25px;
+    /* Espaciado interno */
+    font-size: 1.1rem;
+    /* Tamaño de letra */
+    display: flex;
+    /* Activa Flexbox */
+    justify-content: space-between;
+    /* Separa elementos a los extremos */
+    align-items: center;
+    /* Centra verticalmente */
+}
+
+/* TÍTULO PRINCIPAL DE LA NOTICIA */
+.main-title {
+    background: #d32f2f;
+    /* Fondo rojo */
+    color: rgb(0, 0, 0);
+    /* Texto negro */
+    text-align: center;
+    /* Centra el texto */
+    padding: 25px 20px;
+    /* Espaciado interno */
+    font-size: 3.2rem;
+    /* Tamaño de letra */
+    font-weight: bold;
+    /* Texto en negrita */
+    text-transform: uppercase;
+    /* Convierte el texto a mayúsculas */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+}
+
+/* SECCIÓN DE ANTECEDENTES */
+.antecedentes {
+    padding: 30px 25px;
+    /* Espaciado interno */
+    background: #f5f5f5;
+    /* Fondo gris claro */
+    border: 2px solid black;
+    /* Borde negro */
+}
+
+/* TÍTULO DE LA SECCIÓN ANTECEDENTES */
+.antecedentes h2 {
+    text-align: center;
+    /* Centra el texto */
+    margin-bottom: 25px;
+    /* Espacio inferior */
+    color: #000000;
+    /* Color negro */
+    font-size: 1.8rem;
+    /* Tamaño de letra */
+}
+
+/* CUADRÍCULA DE LAS ETAPAS */
+.antecedentes-grid {
+    display: grid;
+    /* Activa CSS Grid */
+    grid-template-columns: repeat(3, 1fr);
+    /* Tres columnas iguales */
+    gap: 20px;
+    /* Espacio entre columnas */
+}
+
+/* TARJETA DE CADA ETAPA */
+.etapa {
+    background: white;
+    /* Fondo blanco */
+    padding: 18px;
+    /* Espaciado interno */
+    border-radius: 12px;
+    /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    border: 2px solid black;
+    /* Borde negro */
+}
+
+/* SUBTÍTULO DE CADA ETAPA */
+.etapa h3 {
+    color: #000000;
+    /* Color negro */
+    margin-bottom: 12px;
+    /* Espacio inferior */
+    border-bottom: 3px solid #d32f2f;
+    /* Línea decorativa roja */
+    padding-bottom: 8px;
+    /* Espacio debajo del texto */
+}
+
+/* PÁRRAFOS DE LAS ETAPAS */
+.etapa p {
+    text-align: justify;
+    /* Justifica el texto */
+}
+
+/* SECCIÓN DEL RÉCORD OBTENIDO */
+.record-section {
+    display: grid;
+    /* Activa CSS Grid */
+    grid-template-columns: 1fr 1fr;
+    /* Dos columnas iguales */
+    gap: 30px;
+    /* Espacio entre columnas */
+    padding: 30px 25px;
+    /* Espaciado interno */
+    background: white;
+    /* Fondo blanco */
+    border: 2px solid black;
+    /* Borde negro */
+}
+
+/* TÍTULO DEL RÉCORD */
+.record-section h2 {
+    color: #000000;
+    /* Color negro */
+    font-size: 2.1rem;
+    /* Tamaño base */
+    line-height: 1.2;
+    /* Altura entre líneas */
+    font-size: 58px;
+    /* Tamaño final del texto */
+    text-align: left;
+    /* Alineación izquierda */
+    margin-top: 0px;
+    /* Elimina margen superior */
+}
+
+/* TEXTO DESCRIPTIVO DEL RÉCORD */
+.record-section p {
+    text-align: justify;
+    /* Justifica el texto */
+    text-justify: inter-word;
+    /* Distribuye palabras uniformemente */
+    hyphens: auto;
+    /* Permite separación automática de palabras */
+    font-size: 20px;
+    /* Tamaño de letra */
+}
+
+/* IMAGEN PRINCIPAL DE LOS CAMPEONES */
+.imagen-campeones {
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+    border-radius: 12px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Sombra */
+}
+
+/* CONTENEDOR DE LAS SECCIONES INFERIORES */
+.bottom-grid {
+    display: grid;
+    /* Activa CSS Grid */
+    grid-template-columns: 1fr 1fr;
+    /* Dos columnas iguales */
+    border-top: 1px solid #ddd;
+    /* Línea superior */
+    border: 2px solid black;
+    /* Borde negro */
+}
+
+/* SECCIÓN INFERIOR GENERAL */
+.bottom-section {
+    padding: 30px 25px;
+    /* Espaciado interno */
+    background: white;
+    /* Fondo blanco */
+    border: 2px solid black;
+    /* Borde negro */
+}
+
+/* BLOQUE DE TRABAJO COLABORATIVO */
+.trabajo-colaborativo {
+    display: flex;
+    /* Activa Flexbox */
+    gap: 20px;
+    /* Espacio entre elementos */
+    align-items: flex-start;
+    /* Alinea al inicio verticalmente */
+    border: 2px solid black;
+    /* Borde negro */
+}
+
+/* IMAGEN DEL APARTADO DE TRABAJO COLABORATIVO */
+.trabajo-colaborativo .imagen-colaborativo {
+    width: 25%;
+    /* Ocupa el 25% del ancho */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Sombra */
+    flex-shrink: 0;
+    /* Evita que la imagen se reduzca */
+}
+
+/* CONTENEDOR DEL TEXTO DEL APARTADO */
+.trabajo-colaborativo .texto-colaborativo {
+    flex: 1;
+    /* Ocupa el espacio restante */
+}
+
+/* TÍTULO DEL APARTADO TRABAJO COLABORATIVO */
+.trabajo-colaborativo h3 {
+    color: #000000;
+    /* Color negro */
+    font-size: 1.65rem;
+    /* Tamaño de letra */
+    margin-bottom: 12px;
+    /* Espacio inferior */
+}
+
+/* TEXTO DEL APARTADO TRABAJO COLABORATIVO */
+.trabajo-colaborativo p {
+    text-align: justify;
+    /* Justifica el texto */
+}
+
+/* TÍTULOS DE LAS SECCIONES INFERIORES */
+.bottom-section h3 {
+    color: #000000;
+    /* Color negro */
+    font-size: 1.65rem;
+    /* Tamaño de letra */
+    margin-bottom: 15px;
+    /* Espacio inferior */
+}
+
+/* PÁRRAFOS DE LAS SECCIONES INFERIORES */
+.bottom-section p {
+    text-align: justify;
+    /* Justifica el texto */
+}
+
+/* DISEÑO RESPONSIVO PARA CELULARES */
+@media (max-width: 760px) {
+
+    /* Reduce el tamaño de los textos del encabezado */
+    .header-date span {
+        font-size: small;
+        text-align: left;
+    }
+
+    /* Reduce el tamaño del título principal */
+    .main-title {
+        font-size: 30px;
+    }
+
+    /* Reduce el ancho del contenedor principal */
+    .campeones-container {
+        max-width: 90%;
+    }
+
+    /* Ajusta las tarjetas de etapas */
+    .etapa {
+        padding: 10px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+
+    /* Convierte la cuadrícula de etapas en bloques verticales */
+    .antecedentes-grid {
+        display: block;
+    }
+
+    /* Convierte la sección de récord en una sola columna */
+    .record-section {
+        display: block;
+    }
+
+    /* Reduce el tamaño del título del récord */
+    .record-section h2 {
+        font-size: 40px;
+    }
+
+    /* Convierte las dos columnas inferiores en una sola */
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Coloca imagen y texto uno debajo del otro */
+    .trabajo-colaborativo {
+        flex-direction: column;
+    }
+
+    /* Hace que la imagen ocupe todo el ancho */
+    .trabajo-colaborativo .imagen-colaborativo {
+        width: 100%;
+    }
+}

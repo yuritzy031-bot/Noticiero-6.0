@@ -1,0 +1,281 @@
+/* BARRA SUPERIOR */
+
+/* Barra decorativa superior que muestra la fecha y la categoría de la noticia. */
+.barra-superior {
+    background-color: #8B0000;
+    /* Color guinda institucional. */
+
+    padding: 14px 0;
+    /* Espaciado interno superior e inferior. */
+
+    width: 100%;
+    border-radius: 50px;
+    /* Bordes completamente redondeados. */
+
+    margin: 25px auto 35px auto;
+    /* Separación respecto a otros elementos. */
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    /* Sombra suave para dar profundidad. */
+}
+
+/* Contenedor interno de la barra superior. */
+.barra-contenido {
+    display: flex;
+    /* Coloca los elementos en una misma fila. */
+
+    justify-content: space-between;
+    /* Separa la fecha y la categoría hacia extremos opuestos. */
+
+    align-items: center;
+    /* Centra verticalmente los elementos. */
+
+    max-width: 1000px;
+    margin: 0 auto;
+
+    padding: 0 40px;
+
+    color: white;
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+/* Estilo para la fecha de publicación. */
+.fecha {
+    font-size: 1.08rem;
+}
+
+/* Estilo para la categoría de la noticia. */
+.categoria {
+    font-size: 1.32rem;
+    text-transform: uppercase;
+    /* Convierte el texto a mayúsculas. */
+
+    letter-spacing: 1.5px;
+    /* Aumenta la separación entre letras. */
+}
+
+/* CONFIGURACIÓN GENERAL */
+
+/* Reinicia márgenes y rellenos para todos los elementos del main. */
+main * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal de toda la noticia. */
+main {
+    max-width: 1100px;
+    margin: 20px auto;
+
+    background: white;
+
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    /* Sombra exterior. */
+
+    overflow: hidden;
+    /* Evita que los elementos sobresalgan. */
+}
+
+/* TÍTULO PRINCIPAL */
+
+/* Sección donde se encuentra el encabezado principal. */
+.main-title {
+    padding: 35px 25px 25px;
+    text-align: center;
+
+    border-bottom: 4px solid #000;
+    /* Línea divisoria inferior. */
+}
+
+/* Título principal de la noticia. */
+.main-title h1 {
+    font-size: 2.25rem;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+/* Divide el contenido en dos columnas. */
+.content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* Columna principal más ancha que la lateral. */
+
+    gap: 30px;
+    padding: 30px 25px;
+}
+
+/* Columna izquierda donde se encuentra la noticia principal. */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Imagen principal de la noticia. */
+.photo {
+    width: 100%;
+    height: auto;
+
+    border: 2px solid #333;
+
+    margin: 10px 0 8px 0;
+}
+
+/* Pie de fotografía. */
+.small-caption {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+/* Formato de los párrafos del artículo. */
+.article p {
+    text-align: justify;
+    margin-bottom: 1.1em;
+    font-size: 1.05rem;
+}
+
+/* Título secundario para apartados especiales. */
+.voz-title {
+    color: #c00;
+    margin: 25px 0 10px;
+    font-size: 1.35rem;
+}
+
+/* COLUMNA LATERAL */
+
+/* Columna derecha con información complementaria. */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+}
+
+/* Espaciado y color de los bloques internos. */
+.right-column div {
+    margin-top: 55px;
+    background-color: #efefef;
+}
+
+/* Recuadros informativos laterales. */
+.sidebar-box {
+    padding: 25px;
+}
+
+/* Variante de recuadro utilizada para antecedentes. */
+.black-box {
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+}
+
+/* Títulos de los recuadros laterales. */
+.black-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+/* Fechas mostradas dentro de los recuadros. */
+.date-box {
+    font-weight: bold;
+    color: #000000;
+    font-size: 1.1rem;
+    margin-top: 8px;
+}
+
+/* VOZ ESTUDIANTIL */
+
+/* Sección destacada para la participación estudiantil. */
+.voz-estudiantil {
+    background: #f8f8f8;
+
+    padding: 25px 30px;
+
+    border-top: 4px solid #c00;
+    /* Línea superior decorativa. */
+
+    margin-top: 10px;
+
+    display: flex;
+    align-items: flex-start;
+    /* Alinea los elementos en la parte superior. */
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+    /* Permite que los elementos pasen a otra línea si es necesario. */
+}
+
+/* Título de la sección Voz Estudiantil. */
+.voz-estudiantil h2 {
+    color: #c00;
+    margin-bottom: 15px;
+
+    font-size: 1.6rem;
+
+    text-transform: uppercase;
+
+    flex-basis: 100%;
+    /* Obliga al título a ocupar toda la fila. */
+}
+
+/* Texto descriptivo de la sección. */
+.voz-estudiantil p {
+    flex: 1;
+    /* Ocupa el espacio restante disponible. */
+
+    margin: 0;
+
+    min-width: 300px;
+}
+
+/* Imagen de la participación estudiantil. */
+.voz-estudiantil img {
+    max-width: 40%;
+    /* Limita el ancho máximo de la imagen. */
+
+    height: auto;
+
+    border-radius: 8px;
+
+    margin-left: auto;
+    /* Envía la imagen hacia la derecha. */
+
+    flex-shrink: 0;
+    /* Evita que la imagen se reduzca demasiado. */
+}
+
+/* DISEÑO RESPONSIVO PARA CELULARES */
+@media (max-width: 760px) {
+
+    /* Convierte las dos columnas en una sola. */
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    /* Elimina separación lateral adicional. */
+    .right-column {
+        padding-left: 0;
+    }
+
+    /* Centra la imagen de la sección Voz Estudiantil. */
+    .voz-estudiantil img {
+        margin: auto;
+    }
+
+    /* Reduce el ancho de la barra superior. */
+    .barra-superior {
+        width: 90%;
+    }
+
+    /* Reduce el tamaño del texto en la barra superior. */
+    .barra-contenido span {
+        font-size: smaller;
+    }
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!-- Indica que el documento utiliza HTML5 -->
+
+<html lang="es">
+<!-- Inicio del documento HTML y definición del idioma español -->
+
+<head>
+    <!-- Configuración general de la página -->
+
+    <meta charset="UTF-8">
+    <!-- Permite mostrar caracteres especiales como acentos y ñ -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea adaptable a dispositivos móviles -->
+
+    <title>Noticiero 6.0</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Vincula la hoja de estilos CSS externa -->
+
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+    <!-- Biblioteca de iconos Font Awesome -->
+</head>
+
+<body>
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <header>
+
+        <!-- Contenedor del logo, título y botón de ayuda -->
+        <div class="encabezado">
+
+            <!-- Logo -->
+            <img src="imagenes/logo.jpeg" alt="Logo" class="logo">
+
+            <!-- Nombre del periódico digital -->
+            <h1>Noticiero 6.0</h1>
+
+            <!-- Botón de ayuda -->
+            <div class="boton">
+                <a href="help.html">AYUDA</a>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN DEL BUSCADOR -->
+        <section class="buscador">
+
+            <!-- Contenedor principal del buscador -->
+            <div class="search-container">
+
+                <!-- Campo para escribir la búsqueda -->
+                <input type="text" id="searchInput" placeholder="Buscar noticia" />
+
+                <!-- Lista donde se mostrarán los resultados encontrados -->
+                <ul id="resultsList" class="results-list"></ul>
+
+                <!-- Mensaje cuando no existen coincidencias -->
+                <p id="noResults" class="no-results">No se encontraron resultados.</p>
+
+            </div>
+
+            <!-- Archivo JavaScript externo -->
+            <script src="app.js"></script>
+
+            <script>
+
+                /* Base de datos de noticias disponibles para el buscador */
+                const countries = [
+                    {
+                        title: "Noticias Variadas",
+                        page: "index.html",
+                        id: "noticia1",
+                    },
+
+                    {
+                        title: "Teoría del color",
+                        page: "cultura.html",
+                        id: "noticia2",
+                    },
+
+                    {
+                        title: "Constitución política",
+                        page: "cultura.html",
+                        id: "noticia3",
+                    },
+
+                    {
+                        title: "Entrega de tablets",
+                        page: "tecnología.html",
+                        id: "noticia4",
+                    },
+
+                    {
+                        title: "Campeones nacionales",
+                        page: "competencias.html",
+                        id: "noticia5",
+                    },
+
+                    {
+                        title: "Fútbol femenil",
+                        page: "deportes.html",
+                        id: "noticia6",
+                    },
+
+                    {
+                        title: "Día de San Valentín",
+                        page: "deportes.html",
+                        id: "noticia7",
+                    },
+
+                    {
+                        title: "Vinculación con instituciones",
+                        page: "sociales.html",
+                        id: "noticia8",
+                    },
+
+                    {
+                        title: "Solidaridad ante inundaciones",
+                        page: "sociales.html",
+                        id: "noticia9",
+                    },
+
+                    {
+                        title: "Conmemoraciones",
+                        page: "sociales.html",
+                        id: "noticia10"
+                    },
+
+                    {
+                        title: "Cumpleaños",
+                        page: "celebraciones.html",
+                        id: "noticia11"
+                    },
+
+                    {
+                        title: "Obituarios",
+                        page: "obituarios.html",
+                        id: "noticia12"
+                    }
+                ];
+
+                /* Obtiene los elementos del buscador */
+                const searchInput = document.getElementById("searchInput");
+                const resultList = document.getElementById("resultsList");
+                const noResults = document.getElementById("noResults");
+
+                /* Función que realiza la búsqueda */
+                const handleSearch = () => {
+
+                    /* Convierte el texto ingresado a minúsculas */
+                    const searchTerm = searchInput.value.toLowerCase();
+
+                    /* Filtra las noticias que coinciden con la búsqueda */
+                    const filteredCountries = countries.filter(
+                        (country) =>
+                            country.title.toLowerCase().includes(searchTerm)
+                    );
+
+                    /* Limpia resultados anteriores */
+                    resultList.innerHTML = "";
+
+                    /* Muestra mensaje si no hay coincidencias */
+                    if (filteredCountries.length === 0) {
+                        noResults.style.display = "block";
+                    }
+
+                    else {
+
+                        /* Genera una lista con los resultados encontrados */
+                        filteredCountries.forEach((country) => {
+
+                            const li = document.createElement("li");
+                            li.textContent = country.title;
+
+                            /* Envía al usuario a la noticia seleccionada */
+                            li.addEventListener("click", () => {
+
+                                /* Limpia el buscador */
+                                searchInput.value = "";
+                                resultList.innerHTML = "";
+                                noResults.style.display = "none";
+
+                                /* Redirige a la noticia */
+                                location.href = country.page + "#" + country.id;
+                            });
+
+                            resultList.appendChild(li);
+                        });
+
+                        noResults.style.display = "none";
+                    }
+
+                    /* Oculta los resultados si el campo está vacío */
+                    if (searchInput.value === "") {
+                        resultList.innerHTML = "";
+                    }
+                };
+
+                /* Ejecuta la búsqueda mientras el usuario escribe */
+                searchInput.addEventListener("input", handleSearch);
+
+            </script>
+
+        </section>
+
+        <!-- MENÚ DE NAVEGACIÓN PRINCIPAL -->
+        <nav>
+
+            <!-- Lista de enlaces a las diferentes pestañas -->
+            <ul class="menu">
+
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cultura.html">Cultura</a></li>
+                <li><a href="tecnología.html">Tecnología</a></li>
+                <li><a href="competencias.html">Competencias</a></li>
+                <li><a href="deportes.html">Deportes</a></li>
+                <li><a href="sociales.html">Sociales</a></li>
+                <li><a href="celebraciones.html">Celebraciones</a></li>
+                <li><a href="obituarios.html">Obituarios</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- CUERPO DE PÁGINA -->
+    <main>
+
+        <!-- Título principal de la sección de noticias variadas -->
+        <p class="t" id="noticia1">Noticias Variadas</p>
+
+        <!-- Contenedor principal que agrupa la galería y la información -->
+        <section id="index">
+
+            <!-- Galería de imágenes destacadas del periódico -->
+            <div class="galeria">
+
+                <!-- Imágenes que representan las diferentes noticias o eventos -->
+                <img src="imagenes/inicio1.jpeg" alt="Noticia 1">
+                <img src="imagenes/inicio2.jpeg" alt="Noticia 2">
+                <img src="imagenes/inicio3.jpeg" alt="Noticia 3">
+                <img src="imagenes/inicio4.jpeg" alt="Noticia 4">
+                <img src="imagenes/inicio5.jpeg" alt="Noticia 5">
+                <img src="imagenes/inicio6.jpeg" alt="Noticia 6">
+                <img src="imagenes/inicio7.jpeg" alt="Noticia 7">
+                <img src="imagenes/inicio8.jpeg" alt="Noticia 8">
+                <img src="imagenes/inicio9.jpeg" alt="Noticia 9">
+                <img src="imagenes/inicio10.jpeg" alt="Noticia 10">
+                <img src="imagenes/inicio11.png" alt="Noticia 11">
+                <img src="imagenes/inicio12.jpeg" alt="Noticia 12">
+
+            </div>
+
+            <!-- Barra lateral con información general -->
+            <aside class="informacion">
+
+                <!-- Bloque que describe las características del periódico -->
+                <div class="bloque">
+
+                    <h3>Nos caracteriza:</h3>
+
+                    <p>
+                        Información confiable y participación
+                        activa de la comunidad educativa.
+                    </p>
+
+                    <img src="imagenes/noscaracteriza.jpeg" alt="Nos Caracteriza">
+
+                </div>
+
+                <!-- Bloque que presenta la misión -->
+                <div class="bloque">
+
+                    <h3>Misión:</h3>
+
+                    <p>
+                        Informar y promover los eventos,
+                        actividades y logros de la institución.
+                    </p>
+
+                    <img src="imagenes/mision.jpeg" alt="Misión">
+
+                </div>
+
+                <!-- Bloque que presenta la visión -->
+                <div class="bloque">
+
+                    <h3>Visión:</h3>
+
+                    <p>
+                        Ser el principal medio digital
+                        de comunicación escolar.
+                    </p>
+
+                    <img src="imagenes/vision.jpeg" alt="Visión">
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <!-- Menú de navegación secundario ubicado en el pie de página -->
+        <div class="nav_section">
+
+            <nav>
+
+                <!-- Enlaces a las diferentes pestañas del periódico -->
+                <a href="index.html">Inicio</a>
+                <a href="cultura.html">Cultura</a>
+                <a href="tecnología.html">Tecnología</a>
+                <a href="competencias.html">Competencias</a>
+                <a href="deportes.html">Deportes</a>
+                <a href="sociales.html">Sociales</a>
+                <a href="celebraciones.html">Celebraciones</a>
+                <a href="obituarios.html">Obituarios</a>
+
+            </nav>
+
+        </div>
+
+        <!-- Sección de redes sociales y enlaces institucionales -->
+        <div class="consulta">
+
+            <!-- Título de la sección -->
+            <p>Síguenos:</p>
+
+            <!-- Contenedor de los enlaces externos -->
+            <div class="consulta1">
+
+                <!-- Enlace a la página oficial de Facebook del plantel -->
+                <section class="consulta1">
+
+                    <!-- Icono de Facebook -->
+                    <div class="red">
+                        <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre de la página de Facebook -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.facebook.com/BachilleratoGenAztecaHgo">
+                                Bachillerato General Plantel Tepeji del Río
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+                <!-- Enlace al sitio web oficial del Bachillerato del Estado de Hidalgo -->
+                <section class="consulta1">
+
+                    <!-- Icono de sitio web -->
+                    <div class="red">
+                        <a href="https://www.bachillerato-hgo.edu.mx/">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+
+                    <!-- Nombre del sitio web institucional -->
+                    <div class="link">
+                        <p>
+                            <a href="https://www.bachillerato-hgo.edu.mx/">
+                                Bachillerato del Estado de Hidalgo
+                            </a>
+                        </p>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+<!-- Fin del documento HTML -->
+</html>
