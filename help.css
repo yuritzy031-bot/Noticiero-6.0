@@ -1,0 +1,71 @@
+/* SECCIÓN DE AYUDA Y FORMULARIO DE SUGERENCIAS */
+
+/* Título principal de la sección de ayuda */
+#help h2 {
+    font-size: 50px; /* Tamaño grande para destacar el encabezado */
+}
+
+/* Contenedor principal del formulario */
+form {
+    max-width: 700px; /* Limita el ancho máximo del formulario */
+    margin: 40px auto; /* Centra el formulario horizontalmente */
+    display: flex; /* Activa Flexbox */
+    flex-direction: column; /* Organiza los elementos en columna */
+    gap: 20px; /* Espacio entre los campos */
+}
+
+/* Estilo de los campos de texto y área de mensaje */
+#help input, textarea {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 30px; /* Espaciado interno */
+    border-radius: 12px; /* Bordes redondeados */
+    border: 2px solid #ccc; /* Borde gris claro */
+    font-family: Arial; /* Fuente del texto */
+    box-sizing: border-box; /* Incluye padding y borde dentro del ancho */
+    font-size: 20px; /* Tamaño del texto */
+}
+
+/* Configuración específica del área de texto */
+textarea {
+    height: 180px; /* Altura fija */
+    resize: none; /* Impide que el usuario cambie el tamaño */
+}
+
+/* Botón para enviar el formulario */
+button {
+    color: white; /* Color del texto */
+    font-size: 15px; /* Tamaño de la fuente */
+    background-color: rgb(109, 65, 65); /* Color de fondo */
+    border: 2px solid #ccc; /* Borde gris */
+    height: 50px; /* Altura del botón */
+    border-radius: 12px; /* Bordes redondeados */
+    font-weight: bold; /* Texto en negritas */
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+button:hover {
+    background-color: rgb(59, 58, 58); /* Cambia el color de fondo */
+}
+
+/* DISEÑO RESPONSIVO PARA CELULARES */
+@media (max-width: 760px) {
+
+    /* Reduce el ancho del formulario para que se adapte mejor a pantallas pequeñas */
+    form {
+        width: 80%;
+    }
+
+    /* Ajusta el tamaño del título dentro de la sección #help para mejorar la legibilidad en móvil */
+    #help h2 {
+        font-size: 30px;
+    }
+
+    /* Reduce el tamaño de la letra y ajusta el padding de los inputs y textarea
+       para que sean más cómodos de usar en pantallas táctiles */
+    #help input,
+    textarea {
+        font-size: 15px;
+        padding: 15px;
+    }
+
+}
