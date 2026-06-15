@@ -1,0 +1,453 @@
+/* ESTILOS DE LA SECCIÓN SOCIALES */
+
+/* Reinicia márgenes, rellenos y ajusta el modelo de caja
+para todos los elementos dentro de <main>. */
+main * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal de la sección Sociales. */
+#sociales {
+    width: 95%;
+    max-width: 1300px;
+    margin: 30px auto;
+    background: white;
+    padding: 80px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+}
+
+/* Centra todos los títulos principales y secundarios. */
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+/* CONFIGURACIÓN GENERAL DE PÁRRAFOS */
+
+/* Aplica formato general a todos los párrafos
+de la sección Sociales. */
+#sociales p {
+    text-align: justify;
+    /* Justifica el texto en ambos márgenes. */
+
+    line-height: 1.8;
+    /* Aumenta el espacio entre líneas para mejorar la lectura. */
+
+    font-size: 22px;
+    /* Define el tamaño de la letra. */
+}
+
+/* ENCABEZADO */
+
+/* Organiza el encabezado mediante Grid. */
+.encabezado-sociales {
+    display: grid;
+
+    /* Tres columnas: espacio vacío, título y fecha. */
+    grid-template-columns: 1fr 2fr 1fr;
+
+    align-items: center;
+
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+
+    padding: 20px 0;
+
+    margin-bottom: 50px;
+}
+
+/* Título principal de la sección Sociales. */
+.seccion-sociales {
+    font-size: 90px;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* Fecha mostrada en el encabezado. */
+.fecha-sociales {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* SEPARADORES DE NOTICIAS */
+
+/* Agrega una línea superior para dividir noticias. */
+.titulo-solidaridad,
+.salud-paz,
+.depresion,
+.cancer,
+.mujer {
+    border-top: 5px solid rgb(105, 19, 19);
+    padding-top: 40px;
+}
+
+/* Espaciado especial para la sección Solidaridad. */
+.seccion-solidaridad {
+    padding-top: 40px;
+    margin-top: 60px;
+}
+
+/* TÍTULOS */
+
+/* Título principal de la noticia destacada. */
+.noticia-principal h1 {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 40px;
+}
+
+/* Subtítulos de las tarjetas informativas. */
+.tarjeta-social h2 {
+    font-size: 50px;
+    margin-bottom: 25px;
+    line-height: 1.1;
+}
+
+/* Títulos terciarios dentro de las tarjetas. */
+.tarjeta-social h3 {
+    color: rgb(105, 19, 19);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Encabezado de la sección de conmemoraciones. */
+.titulo-conmemoraciones {
+    font-size: 90px;
+    font-weight: 900;
+    text-align: center;
+
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+/* NOTICIA PRINCIPAL */
+
+/* Divide la noticia principal en dos columnas. */
+.contenedor-noticia-sociales {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 40px;
+}
+
+/* Columna lateral de la noticia. */
+.columna-sociales {
+    background: #efefef;
+    padding: 25px;
+    border-left: 6px solid rgb(105, 19, 19);
+}
+
+/* Imagen de la columna lateral. */
+.columna-sociales img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Área principal del contenido escrito. */
+.contenido-sociales {
+    padding: 10px;
+}
+
+/* Imágenes dentro del contenido principal. */
+.contenido-sociales img {
+    width: 70%;
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+}
+
+/* PIE DE FOTO */
+
+/* Formato para pies de imagen estándar. */
+.pie-sociales {
+    font-size: 20px;
+    text-align: center;
+    color: #555;
+    font-style: italic;
+    margin: 15px 0 25px;
+    line-height: 1.4;
+}
+
+/* Pie de foto con tamaño más grande. */
+.pie-socialess {
+    font-size: 35px;
+    text-align: center;
+    color: #555;
+    font-style: italic;
+    margin: 15px 0 25px;
+    line-height: 1.4;
+}
+
+/* SECCIÓN DESTACADA */
+
+/* Recuadro resaltado para información importante. */
+.destacado-sociales{
+    background: #e7e7e7;
+    padding: 30px;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.destacado-sociales .s{
+    font-size: 50px;
+}
+
+/* Título destacado dentro del recuadro especial. */
+#sociales .texto-destacado-sociales h4{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: normal;
+}
+
+
+/* SOLIDARIDAD */
+
+/* Título principal de la noticia Solidaridad. */
+.titulo-solidaridad {
+    text-align: center;
+    font-size: 50px;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+/* Distribuye el contenido en tres columnas. */
+.solidaridad-grid {
+    display: grid;
+    grid-template-columns: 22% 56% 22%;
+    gap: 20px;
+}
+
+/* Columna izquierda. */
+.columna-izquierda {
+    border-right: 1px solid #999;
+    padding-right: 15px;
+}
+
+/* Imagen de la columna izquierda. */
+.columna-izquierda img {
+    width: 100%;
+}
+
+/* Imagen central. */
+.columna-centro img {
+    width: 100%;
+}
+
+/* Columna derecha con elementos apilados verticalmente. */
+.columna-derecha {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Recuadros informativos grises. */
+.recuadro-gris {
+    background: #e7e7e7;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+/* Título dentro del recuadro gris. */
+.recuadro-gris h3 {
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+/* Texto dentro del recuadro gris. */
+.recuadro-gris p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* DÍA NARANJA */
+
+/* Divide contenido en dos columnas. */
+.dia-naranja {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 40px;
+    align-items: center;
+}
+
+/* SALUD Y PAZ */
+
+.salud-paz {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Artículos de la sección Salud y Paz. */
+.salud-paz article {
+    padding: 30px;
+}
+
+/* Imágenes de la sección Salud y Paz. */
+.salud-paz img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+/* DEPRESIÓN */
+
+.depresion {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 40px;
+    align-items: center;
+}
+
+.depresion img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+/* CÁNCER */
+
+.cancer {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 40px;
+    align-items: center;
+}
+
+.cancer img {
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+
+/* MUJER */
+
+.mujer {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.mujer img {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+/* Lista de información complementaria. */
+.mujer ul {
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+/* Elementos de la lista. */
+.mujer li {
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* CONFIGURACIÓN GENERAL DE IMÁGENES */
+
+/* Aplica sombra a todas las imágenes. */
+img {
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+/* ESPACIADO ENTRE SECCIONES */
+
+/* Separa verticalmente cada sección. */
+#sociales section {
+    margin-bottom: 70px;
+}
+
+/* DISEÑO RESPONSIVO PARA CELULARES */
+@media(max-width:760px) {
+
+    /* Reduce el relleno general en celulares. */
+    #sociales {
+        padding: 15px;
+    }
+
+    /* Convierte el encabezado en una sola columna. */
+    .encabezado-sociales {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Reduce el tamaño del título principal. */
+    .seccion-sociales {
+        font-size: 50px;
+    }
+
+    /* Ajusta el tamaño de la fecha. */
+    .fecha-sociales {
+        text-align: center;
+        font-size: 10px;
+    }
+
+    /* Reduce títulos importantes. */
+    #noticia8,
+    .seccion-solidaridad h2 {
+        font-size: 30px;
+    }
+
+    /* Reduce el tamaño del encabezado de conmemoraciones. */
+    .titulo-conmemoraciones {
+        font-size: 20px;
+    }
+
+    /* Convierte las estructuras Grid en una sola columna. */
+    .contenedor-noticia-sociales,
+    .solidaridad-grid,
+    .destacado-sociales,
+    .dia-naranja,
+    .salud-paz,
+    .depresion,
+    .cancer,
+    .mujer {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ajusta espacios internos en móviles. */
+    .destacado-sociales div,
+    .columna-izquierda {
+        padding-right: 0px;
+        margin: auto;
+    }
+
+    /* Reduce el tamaño del texto general. */
+    #sociales p {
+        font-size: 15px;
+        margin: 10px;
+    }
+
+    /* Reduce el tamaño del texto destacado. */
+    #sociales .texto-destacado-sociales h4{
+        font-size: 30px;
+    }
+
+    .destacado-sociales{
+        font-size: 15px;
+    }
+
+    .destacado-sociales .s{
+        font-size: 25px;
+    }
+
+    /* Reduce el tamaño de las listas. */
+    #sociales li {
+        font-size: smaller;
+    }
+}
